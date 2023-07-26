@@ -1,5 +1,4 @@
 import 'package:shamo/homepage/constants.dart';
-import 'package:shamo/homepage/details_screen.dart';
 import 'package:shamo/homepage/model/category.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -78,16 +77,15 @@ class HomeScreen extends StatelessWidget {
                 itemBuilder: (context, index) {
                   return GestureDetector(
                     onTap: () {
-                      if (categoriesData[index]['name'] == 'Quiz') {
-                        Navigator.pushNamed(context, '/quiz');
-                      }else {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const DetailsScreen(),
-                          ),
-                        );
+                      if (categoriesData[index]['name'] == 'Article') {
+                        Navigator.pushNamed(context, '/courses');
                       }
+                      if (categoriesData[index]['name'] == 'Lapor') {
+                        Navigator.pushNamed(context, '/detail-chat');
+                      }
+                      if (categoriesData[index]['name'] == 'Video') {
+                        Navigator.pushNamed(context, '/video');
+                      } 
                     },
                     child: Container(
                       padding: const EdgeInsets.all(20),

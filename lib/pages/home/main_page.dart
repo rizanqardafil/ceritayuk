@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:shamo/pages/home/chat_page.dart';
 import 'package:shamo/pages/home/home_page.dart';
 import 'package:shamo/pages/home/profile_page.dart';
-import 'package:shamo/pages/home/wishlist_page.dart';
 import 'package:shamo/theme.dart';
+import 'package:shamo/pages/video/screens/my_courses/my_courses.dart';
+
+import 'package:shamo/pages/video/screens/course_library/course_library.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({Key? key}) : super(key: key);
@@ -20,11 +21,11 @@ class _MainPageState extends State<MainPage> {
     Widget cartButton() {
       return FloatingActionButton(
         onPressed: () {
-          Navigator.pushNamed(context, '/cart');
+          Navigator.pushNamed(context, '/detail-chat');
         },
         child: Image.asset(
-          'assets/images/icon_cart.png',
-          width: 20,
+          'assets/images/bubble-chat.png',
+          width: 30,
         ),
       );
     }
@@ -69,7 +70,7 @@ class _MainPageState extends State<MainPage> {
                       bottom: 10,
                     ),
                     child: Image.asset(
-                      'assets/images/icon_wishlist.png',
+                      'assets/images/magnifying-glass.png',
                       width: 20,
                       color: currentPage == 1 ? primaryColor : thirdColor,
                     ),
@@ -83,7 +84,7 @@ class _MainPageState extends State<MainPage> {
                       bottom: 10,
                     ),
                     child: Image.asset(
-                      'assets/images/icon_chat.png',
+                      'assets/images/icon_wishlist.png',
                       width: 20,
                       color: currentPage == 2 ? primaryColor : thirdColor,
                     ),
@@ -114,9 +115,9 @@ class _MainPageState extends State<MainPage> {
         case 0:
           return const HomePage();
         case 1:
-          return const WishlistPage();
+          return const CourseLibrary();
         case 2:
-          return const ChatPage();
+          return const MyCoursesVideo();
         case 3:
           return const ProfilePage();
         default:

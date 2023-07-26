@@ -55,16 +55,13 @@ class Onboarding extends StatelessWidget {
                   ),
                 ),
               ),
-              const SizedBox(height: 20),
               Expanded(
                 child: Image.asset(
                   imagePath!,
                   height: 300,
                   width: MediaQuery.of(context).size.width,
-                  fit: BoxFit.cover,
                 ),
               ),
-              const SizedBox(height: 24),
               SizedBox(
                 width: 254,
                 child: Text(
@@ -78,7 +75,7 @@ class Onboarding extends StatelessWidget {
                   textAlign: TextAlign.center,
                 ),
               ),
-              const SizedBox(height: 24),
+              const SizedBox(height: 4),
               Container(
                 alignment: Alignment.center,
                 width: 276,

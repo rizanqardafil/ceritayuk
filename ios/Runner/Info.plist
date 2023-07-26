@@ -42,8 +42,18 @@
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
-	<false/>
-	<key>CADisableMinimumFrameDurationOnPhone</key>
+	<true/>
+	<key>CFBundleTypeRole</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>com.googleusercontent.apps.760762236393-rh87jbikh8c932kpvde7egqu6qpi6eom</string>
+			</array>
+		</dict>
+	</array>
 	<true/>
 </dict>
 </plist>

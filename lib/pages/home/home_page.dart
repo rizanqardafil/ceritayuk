@@ -1,12 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:shamo/theme.dart';
-import 'package:shamo/widgets/product_card.dart';
 import 'package:shamo/widgets/product_tile.dart';
+import 'package:shamo/widgets/banner_card.dart';
+import 'package:shamo/widgets/video_card.dart';
+import 'package:shamo/widgets/article_card.dart';
+import 'package:shamo/widgets/quiz_card.dart';
+import 'package:shamo/widgets/lapor_card.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
 
   Widget header() {
+    final User? user = FirebaseAuth.instance.currentUser;
+
     return Container(
       margin: EdgeInsets.only(
         top: defaultMargin,
@@ -20,7 +27,7 @@ class HomePage extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Hallo, Alex',
+                  'Hallo, ${user?.displayName ?? 'Guest'}',
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
                   style: primaryTextStyle.copyWith(
@@ -28,14 +35,7 @@ class HomePage extends StatelessWidget {
                     fontWeight: semiBold,
                   ),
                 ),
-                Text(
-                  '@alexkein',
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                  style: subtitleTextStyle.copyWith(
-                    fontSize: 16,
-                  ),
-                ),
+                
               ],
             ),
           ),
@@ -59,54 +59,6 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  Widget categories() {
-    return Container(
-      margin: EdgeInsets.only(
-        top: defaultMargin,
-      ),
-      child: SingleChildScrollView(
-        scrollDirection: Axis.horizontal,
-        child: Row(
-          children: [
-            SizedBox(width: defaultMargin),
-            categoriesItem('All Shoes', true),
-            categoriesItem('Running', false),
-            categoriesItem('Training', false),
-            categoriesItem('Basketball', false),
-            categoriesItem('Hiking', false),
-            const SizedBox(width: 14),
-          ],
-        ),
-      ),
-    );
-  }
-
-  Widget categoriesItem(String category, bool isSelected) {
-    return Container(
-      padding: const EdgeInsets.symmetric(
-        horizontal: 12,
-        vertical: 10,
-      ),
-      margin: const EdgeInsets.only(
-        right: 16,
-      ),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(12),
-        border:
-            Border.all(color: isSelected ? transparentColor : subtitleColor),
-        color: isSelected ? primaryColor : transparentColor,
-      ),
-      child: Text(
-        category,
-        style: primaryTextStyle.copyWith(
-          color: isSelected ? primaryTextColor : subtitleColor,
-          fontSize: 13,
-          fontWeight: medium,
-        ),
-      ),
-    );
-  }
-
   Widget popularProductTitle() {
     return Container(
       margin: EdgeInsets.only(
@@ -124,21 +76,76 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  Widget popularProducts() {
+  Widget bannerProduct() {
     return Container(
-      margin: const EdgeInsets.only(top: 14),
-      child: SingleChildScrollView(
-        scrollDirection: Axis.horizontal,
-        child: Row(
+      child: Column(children: [
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            SizedBox(
-              width: defaultMargin,
+            Expanded(
+              child: Center(
+                child: Container(
+                  margin: const EdgeInsets.all(4),
+                  child: const BannerCard(),
+                ),
+              ),
             ),
-            const ProductCard(),
-            const ProductCard(),
-            const ProductCard(),
           ],
         ),
+      ]),
+    );
+  }
+
+  Widget popularProducts() {
+    return Container(
+      margin: const EdgeInsets.only(top: 50),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Expanded(
+                child: Center(
+                  child: Container(
+                    margin: const EdgeInsets.all(4),
+                    child: const VideoCard(),
+                  ),
+                ),
+              ),
+              Expanded(
+                child: Center(
+                  child: Container(
+                    margin: const EdgeInsets.all(4),
+                    child: const ArticleCard(),
+                  ),
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 16), // Tambahkan jarak di antara baris produk
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Expanded(
+                child: Center(
+                  child: Container(
+                    margin: const EdgeInsets.all(4),
+                    child: const QuizCard(),
+                  ),
+                ),
+              ),
+              Expanded(
+                child: Center(
+                  child: Container(
+                    margin: const EdgeInsets.all(4),
+                    child: const LaporCard(),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ],
       ),
     );
   }
@@ -165,7 +172,7 @@ class HomePage extends StatelessWidget {
       margin: const EdgeInsets.only(
         top: 14,
       ),
-      child: Column(children: const [
+      child: const Column(children: [
         ProductTile(),
         ProductTile(),
         ProductTile(),
@@ -180,11 +187,7 @@ class HomePage extends StatelessWidget {
     return ListView(
       children: [
         header(),
-        categories(),
-        popularProductTitle(),
         popularProducts(),
-        newArrivalsTitle(),
-        newArrivals(),
       ],
     );
   }

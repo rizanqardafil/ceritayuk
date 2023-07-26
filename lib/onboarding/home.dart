@@ -26,7 +26,7 @@ class _HomeState extends State<Home> {
         curve: Curves.easeInOut,
       );
     } else {
-      Navigator.pushNamed(context, '/sign-in'); // Navigate to "/sign-in" screen
+      Navigator.pushNamed(context, '/welcome'); // Navigate to "/sign-in" screen
     }
   }
 
@@ -51,7 +51,7 @@ class _HomeState extends State<Home> {
           onPressed: _nextPage,
           onSkip: () {
             Navigator.pushNamed(
-                context, '/sign-in'); // Navigate to "/sign-in" screen
+                context, '/welcome'); // Navigate to "/sign-in" screen
           },
         );
       },
