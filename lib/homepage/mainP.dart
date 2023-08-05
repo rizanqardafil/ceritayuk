@@ -81,7 +81,7 @@ class HomeScreen extends StatelessWidget {
                         Navigator.pushNamed(context, '/courses');
                       }
                       if (categoriesData[index]['name'] == 'Lapor') {
-                        Navigator.pushNamed(context, '/detail-chat');
+                        Navigator.pushNamed(context, '/chat');
                       }
                       if (categoriesData[index]['name'] == 'Video') {
                         Navigator.pushNamed(context, '/video');

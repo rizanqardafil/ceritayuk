@@ -21,7 +21,7 @@ class _MainVideoPage extends State<MainVideoPage> {
     Widget cartButton() {
       return FloatingActionButton(
         onPressed: () {
-          Navigator.pushNamed(context, '/detail-chat');
+          Navigator.pushNamed(context, '/chat');
         },
         child: Image.asset(
           'assets/images/icon_chat.png',

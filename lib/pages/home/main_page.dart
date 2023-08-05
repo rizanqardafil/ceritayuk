@@ -21,7 +21,7 @@ class _MainPageState extends State<MainPage> {
     Widget cartButton() {
       return FloatingActionButton(
         onPressed: () {
-          Navigator.pushNamed(context, '/detail-chat');
+          Navigator.pushNamed(context, '/chat');
         },
         child: Image.asset(
           'assets/images/bubble-chat.png',
