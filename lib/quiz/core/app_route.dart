@@ -19,6 +19,9 @@ import 'package:shamo/onboarding/home.dart';
 //chat
 import 'package:shamo/pages/chat/pages/chatterScreen.dart';
 
+//news
+
+import 'package:shamo/news/view/screens/welcome_page.dart';
 //video
 import 'package:shamo/pages/video/main_video_page.dart';
 
@@ -37,6 +40,9 @@ class AppRoute {
 
   //video
   static const video = '/video';
+
+  //news
+  static const article = '/articles';
 
   //quiz
   static const homequiz = '/quiz';
@@ -63,7 +69,7 @@ class AppRoute {
     chat: (context) => const ChatterScreen(),
 
     //artikel
-
+    article: (context) => WelcomePage(),
     //video
     video: (context) => const MainVideoPage(),
     //quiz
