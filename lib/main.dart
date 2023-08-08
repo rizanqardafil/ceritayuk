@@ -2,16 +2,13 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shamo/onboarding/home.dart';
-import 'package:shamo/quiz/core/index.dart';
-import 'package:shamo/quiz/providers/auth.dart';
-import 'package:shamo/quiz/providers/shared_preferences.dart';
-import 'package:shamo/quiz/screens/home/home.dart';
-import 'package:shamo/quiz/screens/spalsh_screen.dart';
+import 'package:shamo/route.dart';
+import 'package:shamo/pages/quiz/providers/auth.dart';
+import 'package:shamo/pages/quiz/providers/shared_preferences.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:shamo/pages/splash_page.dart';
 
-import 'package:shamo/welcome/Screens/Welcome/welcome_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -20,7 +17,9 @@ void main() async {
 
   runApp(ProviderScope(
       overrides: [spProvider.overrideWithValue(sharedPreferences)],
-      child: MyApp()));
+
+      child: const MyApp()));
+
 }
 
 class MyApp extends StatelessWidget {
@@ -34,16 +33,22 @@ class MyApp extends StatelessWidget {
         final futureAuth = ref.watch(futureAuthProvider);
         return MaterialApp(
           title: 'NASA App',
+
           theme: AppTheme.myThemeData,
           // home: const WelcomeScreen(),
           home: futureAuth.when(data: (data) {
             return auth.isAuth ? Home() : SplashPage();
+
+          home: futureAuth.when(data: (data) {
+            return auth.isAuth ? const Home() : const SplashPage();
           }, error: (e, st) {
             return Scaffold(
               body: Center(child: Text(e.toString())),
             );
           }, loading: () {
-            return Scaffold(
+
+            return const Scaffold(
+
               body: Center(child: CircularProgressIndicator()),
             );
           }),
