@@ -5,6 +5,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:shamo/theme.dart';
 import 'package:shamo/videoo/screens/authentication/initial_auth.dart';
 import 'package:shamo/pages/video/screens/my_courses/my_courses.dart';
+import 'package:shamo/pages/video/screens/course_library/course_library.dart';
+
 class HomeVideoPage extends StatefulWidget {
   const HomeVideoPage({Key? key}) : super(key: key);
 
@@ -22,7 +24,7 @@ class _HomeVideoState extends State<HomeVideoPage> {
       Navigator.push(
         context,
         MaterialPageRoute(
-          builder: (context) => InitialAuthentication(),
+          builder: (context) => const InitialAuthentication(),
         ),
       );
     } else {
@@ -57,7 +59,29 @@ class _HomeVideoState extends State<HomeVideoPage> {
               title: "Zero to Hero React Js Course",
               isPremium: true,
             ),
+            CourseListTile(
+              imageURL: "assets/images/logo.png",
+              title: "My Courses",
+              description: "Work Hard, Develop Skills and Solve Problems.",
+              buttonText: "My COURSES",
+              isAlreadyEnrolled: false,
+              isMyCourseSection: false,
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => Scaffold(
+                      backgroundColor: backgroundColor0,
+                      body: const CourseLibrary(),
+                    ),
+                  ),
+                );
+              },
+              isInfo: false,
+              onInfo: () {},
+            ),
             const TitleText(titleText: "Start Learning"),
+
             Expanded(
               child: ListView(
                 physics: const BouncingScrollPhysics(),
@@ -76,7 +100,7 @@ class _HomeVideoState extends State<HomeVideoPage> {
                         MaterialPageRoute(
                           builder: (context) => Scaffold(
                             backgroundColor: backgroundColor0,
-                           body: MyCoursesVideo(),
+                            body: const MyCoursesVideo(),
                           ),
                         ),
                       );

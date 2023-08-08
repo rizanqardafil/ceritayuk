@@ -325,14 +325,7 @@ class MessageBubble extends StatelessWidget {
         crossAxisAlignment:
             user ? CrossAxisAlignment.end : CrossAxisAlignment.start,
         children: <Widget>[
-          Container(
-            padding: const EdgeInsets.symmetric(horizontal: 10),
-            child: Text(
-              msgSender,
-              style: const TextStyle(
-                  fontSize: 13, fontFamily: 'Poppins', color: Colors.black87),
-            ),
-          ),
+          
           Material(
             borderRadius: BorderRadius.only(
               bottomLeft: const Radius.circular(50),

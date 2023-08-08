@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:shamo/theme.dart';
 import 'package:shamo/videoo/screens/course_library/components/course_list_tile.dart';
+
 class CourseLibrary extends StatefulWidget {
   const CourseLibrary({Key? key}) : super(key: key);
 
@@ -15,13 +16,12 @@ class _CourseLibraryState extends State<CourseLibrary> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.transparent,
+      backgroundColor: backgroundColor4,
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 10.0),
         child: Column(
           children: <Widget>[
             const SizedBox(height: 25.0),
-            
             Expanded(
               child: FutureBuilder(
                 future: DefaultAssetBundle.of(context)
