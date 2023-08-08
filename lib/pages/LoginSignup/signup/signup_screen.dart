@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:shamo/pages/LoginSignup/componentlogin/constants.dart';
+import 'package:shamo/pages/LoginSignup/signup/component/socal_sign_up.dart';
 import 'package:shamo/pages/LoginSignup/componentlogin/responsive.dart';
 import 'package:shamo/pages/LoginSignup/componentlogin/background.dart';
 import 'package:shamo/pages/LoginSignup/signup/component/sign_up_top_image.dart';
 import 'package:shamo/pages/LoginSignup/signup/component/signup_form.dart';
 
 class SignUpScreen extends StatelessWidget {
-  const SignUpScreen({Key? key}) : super(key: key);
+  const SignUpScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -20,15 +20,13 @@ class SignUpScreen extends StatelessWidget {
                 child: SignUpScreenTopImage(),
               ),
               Expanded(
-                child: Column(
+                child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     SizedBox(
                       width: 450,
                       child: SignUpForm(),
                     ),
-                    SizedBox(height: defaultPadding / 2),
-                    // SocalSignUp()
                   ],
                 ),
               )
@@ -47,11 +45,11 @@ class MobileSignupScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Column(
+    return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
-        SignUpScreenTopImage(),
-        Row(
+        const SignUpScreenTopImage(),
+        const Row(
           children: [
             Spacer(),
             Expanded(
@@ -61,7 +59,7 @@ class MobileSignupScreen extends StatelessWidget {
             Spacer(),
           ],
         ),
-        // const SocalSignUp()
+        SocalSignUp()
       ],
     );
   }

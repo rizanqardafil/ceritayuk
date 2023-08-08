@@ -24,7 +24,7 @@ class DetailChatPage extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Shoe Store',
+                  'TESAGA',
                   style: primaryTextStyle.copyWith(
                     fontSize: 14,
                     fontWeight: medium,
@@ -45,59 +45,7 @@ class DetailChatPage extends StatelessWidget {
     }
 
     Widget productPreview() {
-      return Container(
-        width: 255,
-        height: 74,
-        padding: const EdgeInsets.all(10),
-        margin: const EdgeInsets.only(bottom: 20),
-        decoration: BoxDecoration(
-          color: backgroundColor5,
-          borderRadius: BorderRadius.circular(12),
-          border: Border.all(
-            color: primaryColor,
-          ),
-        ),
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            ClipRRect(
-              borderRadius: BorderRadius.circular(12),
-              child: Image.asset(
-                'assets/images/image_shoes.png',
-              ),
-            ),
-            const SizedBox(
-              width: 10,
-            ),
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    'COURT VISIOAAAAAA AAAAAAAAAA AAAAAAAAAAAAAAa',
-                    overflow: TextOverflow.ellipsis,
-                    style: primaryTextStyle,
-                  ),
-                  const SizedBox(
-                    height: 2,
-                  ),
-                  Text(
-                    '\$57,15',
-                    style: priceTextStyle.copyWith(
-                      fontWeight: medium,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            Image.asset(
-              'assets/images/button_cancel.png',
-              width: 22,
-            ),
-          ],
-        ),
-      );
+      return Container();
     }
 
     Widget chatInput() {
@@ -155,12 +103,21 @@ class DetailChatPage extends StatelessWidget {
         children: const [
           ChatBubble(
             isSender: true,
-            text: 'Hi, this item is still avaiable?',
+            text:
+                'Saya izin bertanya pak. Apakah nanti judul di papar harus sama dengan judul laporan penelitian yg sudah kita buat? Contohnya punya saya judul penelitiannya “Desan Komunikasi dan Keamanan Data Araitekstur Aplikasi Multimasjid”. Apakah nanti di paper judulnya juga seperti itu atau bisa kita ubah pak? Terima kasih',
           ),
           ChatBubble(
             isSender: false,
-            text: 'Good night, This item is only available in size 42 and 43',
+            text: 'tidak',
           ),
+          ChatBubble(
+            isSender: true,
+            text: "Permisi pak apa memungkinkan untuk zoom juga pak 🙏",
+          ),
+          ChatBubble(
+            isSender: false,
+            text: "Boleh, saya buka zoomnya ya",
+          )
         ],
       );
     }

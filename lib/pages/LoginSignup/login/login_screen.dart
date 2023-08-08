@@ -5,8 +5,8 @@ import 'package:shamo/pages/LoginSignup/componentlogin/background.dart';
 import 'package:shamo/pages/LoginSignup/login/component/login_form.dart';
 import 'package:shamo/pages/LoginSignup/login/component/login_screen_top_image.dart';
 
-class LoginScreen extends StatelessWidget {
-  const LoginScreen({Key? key}) : super(key: key);
+class SigninScreen extends StatelessWidget {
+  const SigninScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
