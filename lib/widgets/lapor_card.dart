@@ -8,7 +8,7 @@ class LaporCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.pushNamed(context, '/detail-chat');
+        Navigator.pushNamed(context, '/chat');
       },
       child: Container(
         width: 160,
