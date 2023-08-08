@@ -15,7 +15,7 @@ class _SplashPageState extends State<SplashPage> {
   void initState() {
     Timer(
       const Duration(seconds: 3),
-      () => Navigator.pushNamed(context, '/splash0'),
+      () => Navigator.pushNamed(context, '/onboarding'),
     );
 
     super.initState();
@@ -31,7 +31,7 @@ class _SplashPageState extends State<SplashPage> {
           height: 450,
           decoration: const BoxDecoration(
             image: DecorationImage(
-              image: AssetImage('assets/images/image.png'),
+              image: AssetImage('assets/images/logo_real.png'),
             ),
           ),
         ),

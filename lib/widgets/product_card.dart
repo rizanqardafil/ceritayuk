@@ -11,9 +11,8 @@ class ProductCard extends StatelessWidget {
         Navigator.pushNamed(context, '/product');
       },
       child: Container(
-        width: 215,
-        height: 278,
-        margin: EdgeInsets.only(right: defaultMargin),
+        width: 160,
+        height: 223,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20),
           color: const Color(0xffECEDEF),
@@ -22,12 +21,12 @@ class ProductCard extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const SizedBox(
-              height: 30,
+              height: 25,
             ),
             Image.asset(
               'assets/images/image_shoes.png',
-              width: 215,
-              height: 150,
+              width: 160,
+              height: 95,
               fit: BoxFit.cover,
             ),
             Container(
@@ -56,7 +55,7 @@ class ProductCard extends StatelessWidget {
                     height: 6,
                   ),
                   Text(
-                    '\$58.67',
+                    '\$58.66',
                     style: priceTextStyle.copyWith(
                       fontSize: 14,
                       fontWeight: medium,

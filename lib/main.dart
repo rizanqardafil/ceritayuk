@@ -1,40 +1,49 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:shamo/pages/cart_page.dart';
-import 'package:shamo/pages/checkout_page.dart';
-import 'package:shamo/pages/detail_chat_page.dart';
-import 'package:shamo/pages/edit_profile_page.dart';
-import 'package:shamo/pages/product_page.dart';
-import 'package:shamo/pages/sign_up_page.dart';
-import 'package:shamo/pages/splash_page.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shamo/onboarding/home.dart';
-import 'package:shamo/pages/LoginSignup/welcome/welcome_screen.dart';
-import 'package:shamo/homepage/mainP.dart';
-import 'package:shamo/homepageall/screens/product/products_screen.dart';
-// import 'package:shamo/quiz/screen/dashboard.dart';
+import 'package:shamo/route.dart';
+import 'package:shamo/pages/quiz/providers/auth.dart';
+import 'package:shamo/pages/quiz/providers/shared_preferences.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-void main() => runApp(const MyApp());
+import 'package:shamo/pages/splash_page.dart';
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  final sharedPreferences = await SharedPreferences.getInstance();
+  await Firebase.initializeApp();
+
+  runApp(ProviderScope(
+      overrides: [spProvider.overrideWithValue(sharedPreferences)],
+      child: const MyApp()));
+}
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      routes: {
-        '/': (context) => const SplashPage(),
-        '/home': (context) => const HomeScreen(),
-        // '/quiz': (context) => DashboardPage(),
-        '/splash0': (context) => const Home(),
-        '/sign-in': (context) => const WelcomeScreen(),
-        '/sign-up': (context) => const SignUpPage(),
-        '/homeall': (context) => const ProductsScreen(),
-        // '/home': (context) => const MainPage(),
-        '/detail-chat': (context) => const DetailChatPage(),
-        '/edit-profile': (context) => const EditProfilePage(),
-        '/product': (context) => const ProductPage(),
-        '/cart': (context) => const CartPage(),
-        '/checkout': (context) => const CheckoutPage(),
+    return Consumer(
+      builder: (context, ref, child) {
+        final auth = ref.watch(authProvider);
+        final futureAuth = ref.watch(futureAuthProvider);
+        return MaterialApp(
+          title: 'NASA App',
+          // home: const WelcomeScreen(),
+          home: futureAuth.when(data: (data) {
+            return auth.isAuth ? const Home() : const SplashPage();
+          }, error: (e, st) {
+            return Scaffold(
+              body: Center(child: Text(e.toString())),
+            );
+          }, loading: () {
+            return const Scaffold(
+              body: Center(child: CircularProgressIndicator()),
+            );
+          }),
+          routes: AppRoute.routes,
+        );
       },
     );
   }
