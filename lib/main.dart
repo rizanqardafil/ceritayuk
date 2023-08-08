@@ -1,80 +1,50 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:get/get.dart';
-import 'firebase_options.dart';
-import 'package:shamo/pages/cart_page.dart';
-import 'package:shamo/pages/checkout_page.dart';
-import 'package:shamo/pages/edit_profile_page.dart';
-import 'package:shamo/pages/home/main_page.dart';
-import 'package:shamo/pages/product_page.dart';
-import 'package:shamo/pages/splash_page.dart';
-import 'package:shamo/news/screens/discover_screen.dart';
-import 'package:shamo/pages/quiz/controllers/controllers.dart';
-import 'package:shamo/pages/quiz/screens/screens.dart';
-import 'package:shamo/welcome/Screens/Login/login_screen.dart';
-import 'package:shamo/pages/LoginSignup/signup/signup_screen.dart';
-import 'package:shamo/welcome/Screens/Welcome/welcome_screen.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shamo/onboarding/home.dart';
-import 'package:shamo/pages/video/main_video_page.dart';
-import 'package:shamo/pages/chat/pages/chatterScreen.dart';
+import 'package:shamo/route.dart';
+import 'package:shamo/pages/quiz/providers/auth.dart';
+import 'package:shamo/pages/quiz/providers/shared_preferences.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
+import 'package:shamo/pages/splash_page.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await initFirebase();
+  final sharedPreferences = await SharedPreferences.getInstance();
+  await Firebase.initializeApp();
 
-  SystemChrome.setPreferredOrientations(
-      [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]).then((_) {
-    runApp(const MyApp());
-  });
+  runApp(ProviderScope(
+      overrides: [spProvider.overrideWithValue(sharedPreferences)],
+      child: const MyApp()));
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
-
-  static final GlobalKey<NavigatorState> navigatorKey = GlobalKey();
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'CeritaYuk',
-      debugShowCheckedModeBanner: false,
-      navigatorKey: navigatorKey,
-      routes: {
-        '/': (context) => const SplashPage(),
-        '/home': (context) => const MainPage(),
-        '/onboarding': (context) => const Home(),
-        '/welcome': (context) => WelcomeScreen1(),
-        '/sign-in': (context) => const SignInScreen(),
-        '/sign-up': (context) => const SignUpScreen(),
-        '/detail-chat': (context) => const ChatterScreen(),
-        '/video': (context) => const MainVideoPage(),
-        '/news': (context) => const HomeScreen(),
-        '/discovered': (context) => const DiscoverScreen(),
-        '/quiz': (context) {
-          Get.put(QuizPaperController());
-          Get.put(MyDrawerController());
-          return const HomeScreen();
-        },
-        '/quizscreen': (context) {
-          Get.put(QuizController());
-          return const QuizeScreen();
-        },
-        '/answercheck': (context) => const AnswersCheckScreen(),
-        '/quizeoverview': (context) => const QuizOverviewScreen(),
-        '/resultscreen': (context) => const Resultcreen(),
-        '/edit-profile': (context) => const EditProfilePage(),
-        '/product': (context) => const ProductPage(),
-        '/cart': (context) => const CartPage(),
-        '/checkout': (context) => const CheckoutPage(),
+    return Consumer(
+      builder: (context, ref, child) {
+        final auth = ref.watch(authProvider);
+        final futureAuth = ref.watch(futureAuthProvider);
+        return MaterialApp(
+          title: 'NASA App',
+          // home: const WelcomeScreen(),
+          home: futureAuth.when(data: (data) {
+            return auth.isAuth ? const Home() : const SplashPage();
+          }, error: (e, st) {
+            return Scaffold(
+              body: Center(child: Text(e.toString())),
+            );
+          }, loading: () {
+            return const Scaffold(
+              body: Center(child: CircularProgressIndicator()),
+            );
+          }),
+          routes: AppRoute.routes,
+        );
       },
     );
   }
-}
-
-Future<void> initFirebase() async {
-  await Firebase.initializeApp(
-    name: 'cerita',
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
 }
