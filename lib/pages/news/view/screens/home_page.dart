@@ -10,7 +10,7 @@ import 'package:shamo/pages/news/view/widgets/custom_app_bar.dart';
 import 'package:shamo/pages/news/view/widgets/featured_news_card.dart';
 import 'package:shamo/pages/news/view/widgets/news_tile.dart';
 import 'package:scroll_indicator/scroll_indicator.dart';
-
+import 'package:shamo/theme.dart';
 class HomePage extends StatefulWidget {
   @override
   _HomePageState createState() => _HomePageState();
@@ -34,7 +34,6 @@ class _HomePageState extends State<HomePage> {
         onPressedLeading: () {
           Scaffold.of(context).openDrawer();
         },
-        title: SvgPicture.asset('assets/icons/appname.svg'),
         profilePicture: Image.asset(
           'assets/images/pp.png',
           fit: BoxFit.cover,
@@ -52,7 +51,7 @@ class _HomePageState extends State<HomePage> {
             padding: EdgeInsets.symmetric(vertical: 16),
             width: MediaQuery.of(context).size.width,
             height: 390,
-            color: Colors.black,
+            color: backgroundColor4,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,

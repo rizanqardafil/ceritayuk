@@ -61,9 +61,9 @@ class _HomeVideoState extends State<HomeVideoPage> {
             ),
             CourseListTile(
               imageURL: "assets/images/logo.png",
-              title: "My Courses",
-              description: "Work Hard, Develop Skills and Solve Problems.",
-              buttonText: "My COURSES",
+              title: "Courses",
+              description: "",
+              buttonText: "List Courses",
               isAlreadyEnrolled: false,
               isMyCourseSection: false,
               onPressed: () {

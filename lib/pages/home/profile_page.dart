@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:shamo/theme.dart';
-
+import 'package:firebase_auth/firebase_auth.dart';
 class ProfilePage extends StatelessWidget {
   const ProfilePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     Widget header() {
+      
+      final User? user = FirebaseAuth.instance.currentUser;
       return AppBar(
         automaticallyImplyLeading: false,
         backgroundColor: backgroundColor1,
@@ -30,7 +32,7 @@ class ProfilePage extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'Hallo, Alex',
+                        'Hallo, ${user?.displayName ?? 'Guest'}',
                         style: primaryTextStyle.copyWith(
                           fontSize: 24,
                           fontWeight: semiBold,
@@ -38,7 +40,7 @@ class ProfilePage extends StatelessWidget {
                         ),
                       ),
                       Text(
-                        '@alexkeinn',
+                        '${user?.email}',
                         style: subtitleTextStyle.copyWith(
                           fontSize: 16,
                         ),
@@ -114,7 +116,6 @@ class ProfilePage extends StatelessWidget {
                 },
                 child: menuItem('Edit Profile'),
               ),
-              menuItem('Your Orders'),
               menuItem('Help'),
               menuSegment('General'),
               menuItem('Privacy & Policy'),

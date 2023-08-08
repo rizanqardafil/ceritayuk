@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:shamo/theme.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
-  final Widget title;
+  final Widget? title;
   final Widget leadingIcon;
   final void Function()? onPressedLeading;
   final List<Widget>? actions; // Change to List<Widget>?
@@ -11,7 +12,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   const CustomAppBar({
     Key? key,
-    required this.title,
+    this.title,
     required this.leadingIcon,
     required this.onPressedLeading,
     this.actions, // Mark as optional with a default value of null
@@ -25,7 +26,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      backgroundColor: Colors.black,
+      backgroundColor: backgroundColor4,
       elevation: 0.0,
       centerTitle: true,
       title: title,
