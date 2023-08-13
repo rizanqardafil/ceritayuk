@@ -30,9 +30,11 @@ class HomePage extends StatelessWidget {
                   'Hallo, ${user?.displayName ?? 'Guest'}',
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
+                  
                   style: primaryTextStyle.copyWith(
                     fontSize: 24,
                     fontWeight: semiBold,
+                    color: Color.fromARGB(255, 0, 0, 0),
                   ),
                 ),
                 

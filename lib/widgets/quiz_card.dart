@@ -15,7 +15,7 @@ class QuizCard extends StatelessWidget {
         height: 223,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20),
-          color: const Color(0xffECEDEF),
+          color: backgroundColor8
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -24,7 +24,7 @@ class QuizCard extends StatelessWidget {
               height: 25,
             ),
             Image.asset(
-              'assets/images/image-home3.png',
+              'assets/images/image-home3-1.png',
               width: 160,
               height: 145,
               fit: BoxFit.cover,
@@ -43,6 +43,7 @@ class QuizCard extends StatelessWidget {
                       style: blackTextStyle.copyWith(
                         fontSize: 18,
                         fontWeight: semiBold,
+                        color: backgroundColor3
                       ),
                       overflow: TextOverflow.ellipsis,
                     ),

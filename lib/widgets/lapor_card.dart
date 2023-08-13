@@ -15,7 +15,7 @@ class LaporCard extends StatelessWidget {
         height: 223,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20),
-          color: const Color(0xffECEDEF),
+          color: backgroundColor8
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -43,6 +43,7 @@ class LaporCard extends StatelessWidget {
                       style: blackTextStyle.copyWith(
                         fontSize: 17,
                         fontWeight: semiBold,
+                        color: backgroundColor3
                       ),
                       overflow: TextOverflow.ellipsis,
                     ),

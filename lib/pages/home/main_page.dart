@@ -26,7 +26,9 @@ class _MainPageState extends State<MainPage> {
         child: Image.asset(
           'assets/images/bubble-chat.png',
           width: 30,
+          color: backgroundColor4,
         ),
+        backgroundColor: backgroundColor8,
       );
     }
 
