@@ -11,7 +11,7 @@ class ProfilePage extends StatelessWidget {
       final User? user = FirebaseAuth.instance.currentUser;
       return AppBar(
         automaticallyImplyLeading: false,
-        backgroundColor: backgroundColor1,
+        backgroundColor: backgroundColor3,
         elevation: 0,
         flexibleSpace: SafeArea(
           child: Container(
@@ -37,6 +37,7 @@ class ProfilePage extends StatelessWidget {
                           fontSize: 24,
                           fontWeight: semiBold,
                           overflow: TextOverflow.ellipsis,
+                          color: backgroundColor9
                         ),
                       ),
                       Text(
@@ -76,6 +77,7 @@ class ProfilePage extends StatelessWidget {
           style: primaryTextStyle.copyWith(
             fontSize: 16,
             fontWeight: semiBold,
+            color: backgroundColor9
           ),
         ),
       );
