@@ -21,8 +21,8 @@ class NewsHelper {
 
 var featuredNewsRawData = [
   {
-    'title': '‘Space Jam: A New Legacy’ Takes on ‘Black Widow’ at the Box Office.',
-    'photo': 'assets/images/spacejam.jpg',
+    'title': 'Menghadapi Pubertas dengan Bijak, Menjaga Kesehatan Reproduksi yang Optimal',
+    'photo': 'assets/images/news1.jpg',
     'description': r'''Black Widow has faced down mad titans and genocidal robots, but can the veteran Avenger take down a band of scrappy Looney Toons?
 
 It’ll be a showdown between Disney’s and Marvel’s “Black Widow” and the Warner Bros. sequel “Space Jam: A New Legacy” at the domestic box office, with Scarlett Johansson’s superhero adventure poised to reclaim the top spot.
@@ -31,12 +31,12 @@ After “Black Widow” opened on July 9 to $80 million in North America, a reco
 
 In a rare moment of streaming revenue transparency, Disney revealed last weekend that “Black Widow” collected $60 million globally on Disney Plus, where the film premiered (for a $30 surcharge) on the same day as its theatrical release. For now, Disney isn’t expected to update that figure beyond its opening weekend sales.
     ''',
-    'date': 'Jul 14, 2021',
-    'author': 'anon anon'
+    'date': 'Jul 14, 2023',
+    'author': 'Rizan Qardafil'
   },
   {
-    'title': 'How a Pivotal Scene in ‘The Green Knight’ Took Over a Year to Edit.',
-    'photo': 'assets/images/green knight.jpg',
+    'title': 'Penyakit Seksual Menular: Perkembangan Zaman dan Dampaknya di Masyarakat.',
+    'photo': 'assets/images/news2.jpg',
     'description': r'''Black Widow has faced down mad titans and genocidal robots, but can the veteran Avenger take down a band of scrappy Looney Toons?
 
 It’ll be a showdown between Disney’s and Marvel’s “Black Widow” and the Warner Bros. sequel “Space Jam: A New Legacy” at the domestic box office, with Scarlett Johansson’s superhero adventure poised to reclaim the top spot.
@@ -52,8 +52,8 @@ In a rare moment of streaming revenue transparency, Disney revealed last weekend
 
 var breakingNewsRawData = [
   {
-    'title': 'Covid map: Coronavirus cases, deaths, vaccinations by country.',
-    'photo': 'assets/images/vaccin.jpg',
+    'title': 'Mengungkap Bahaya Pornografi: Mengapa Kita Harus Berhati-hati?',
+    'photo': 'assets/images/news3.jpg',
     'description':
         r'''Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quisque non tellus orci ac auctor. Diam maecenas ultricies mi eget. Varius sit amet mattis vulputate enim nulla. Consectetur adipiscing elit duis tristique sollicitudin. Tellus mauris a diam maecenas sed enim ut sem. Feugiat in fermentum posuere urna nec. Quis imperdiet massa tincidunt nunc pulvinar sapien et ligula ullamcorper. Sed felis eget velit aliquet. Nunc sed blandit libero volutpat sed. Egestas congue quisque egestas diam in arcu cursus euismod quis. Scelerisque eu ultrices vitae auctor eu augue ut. Blandit aliquam etiam erat velit scelerisque in dictum non consectetur.
         
@@ -62,8 +62,8 @@ Malesuada proin libero nunc consequat interdum varius sit. Sollicitudin ac orci 
     'author': 'anon anon'
   },
   {
-    'title': "Indonesia overtakes India as Asia's new Covid-19 epicenter.",
-    'photo': 'assets/images/inonesiacovid.jpg',
+    'title': "Pentingnya pendidikan seksual remaja: Fakta terkait Masturbasi",
+    'photo': 'assets/images/news4.jpg',
     'description':
         r'''Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quisque non tellus orci ac auctor. Diam maecenas ultricies mi eget. Varius sit amet mattis vulputate enim nulla. Consectetur adipiscing elit duis tristique sollicitudin. Tellus mauris a diam maecenas sed enim ut sem. Feugiat in fermentum posuere urna nec. Quis imperdiet massa tincidunt nunc pulvinar sapien et ligula ullamcorper. Sed felis eget velit aliquet. Nunc sed blandit libero volutpat sed. Egestas congue quisque egestas diam in arcu cursus euismod quis. Scelerisque eu ultrices vitae auctor eu augue ut. Blandit aliquam etiam erat velit scelerisque in dictum non consectetur.
         
@@ -75,8 +75,8 @@ Malesuada proin libero nunc consequat interdum varius sit. Sollicitudin ac orci 
 
 var recomendationNewsRawData = [
   {
-    'title': "A giant 3D cat has taken over one of Tokyo's biggest billboards.",
-    'photo': 'assets/images/cat3d.jpg',
+    'title': "Mengungkap Bahaya Pornografi: Mengapa Kita Harus Berhati-hati?",
+    'photo': 'assets/images/news3.jpg',
     'description':
         r'''Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quisque non tellus orci ac auctor. Diam maecenas ultricies mi eget. Varius sit amet mattis vulputate enim nulla. Consectetur adipiscing elit duis tristique sollicitudin. Tellus mauris a diam maecenas sed enim ut sem. Feugiat in fermentum posuere urna nec. Quis imperdiet massa tincidunt nunc pulvinar sapien et ligula ullamcorper. Sed felis eget velit aliquet. Nunc sed blandit libero volutpat sed. Egestas congue quisque egestas diam in arcu cursus euismod quis. Scelerisque eu ultrices vitae auctor eu augue ut. Blandit aliquam etiam erat velit scelerisque in dictum non consectetur.
         
@@ -85,8 +85,8 @@ Malesuada proin libero nunc consequat interdum varius sit. Sollicitudin ac orci 
     'author': 'anon anon'
   },
   {
-    'title': "Find out which countries are welcoming US tourists back.",
-    'photo': 'assets/images/pemandangan.jpg',
+    'title': "Apa sih Orientasi Seksual",
+    'photo': 'assets/images/news4.jpg',
     'description':
         r'''Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quisque non tellus orci ac auctor. Diam maecenas ultricies mi eget. Varius sit amet mattis vulputate enim nulla. Consectetur adipiscing elit duis tristique sollicitudin. Tellus mauris a diam maecenas sed enim ut sem. Feugiat in fermentum posuere urna nec. Quis imperdiet massa tincidunt nunc pulvinar sapien et ligula ullamcorper. Sed felis eget velit aliquet. Nunc sed blandit libero volutpat sed. Egestas congue quisque egestas diam in arcu cursus euismod quis. Scelerisque eu ultrices vitae auctor eu augue ut. Blandit aliquam etiam erat velit scelerisque in dictum non consectetur.
         
@@ -95,8 +95,8 @@ Malesuada proin libero nunc consequat interdum varius sit. Sollicitudin ac orci 
     'author': 'anon anon'
   },
   {
-    'title': "Naomi Osaka Barbie doll sells out shortly after launch.",
-    'photo': 'assets/images/barbiebadminton.jpg',
+    'title': "Gender Equality",
+    'photo': 'assets/images/news5.jpg',
     'description':
         r'''Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quisque non tellus orci ac auctor. Diam maecenas ultricies mi eget. Varius sit amet mattis vulputate enim nulla. Consectetur adipiscing elit duis tristique sollicitudin. Tellus mauris a diam maecenas sed enim ut sem. Feugiat in fermentum posuere urna nec. Quis imperdiet massa tincidunt nunc pulvinar sapien et ligula ullamcorper. Sed felis eget velit aliquet. Nunc sed blandit libero volutpat sed. Egestas congue quisque egestas diam in arcu cursus euismod quis. Scelerisque eu ultrices vitae auctor eu augue ut. Blandit aliquam etiam erat velit scelerisque in dictum non consectetur.
         

@@ -104,6 +104,7 @@ class TitleText extends StatelessWidget {
     required this.titleText,
   }) : super(key: key);
   final String titleText;
+  
 
   @override
   Widget build(BuildContext context) {

@@ -18,6 +18,8 @@ import 'package:shamo/pages/LoginSignup/signup/signup_screen.dart';
 import 'package:shamo/onboarding/home.dart';
 //chat
 import 'package:shamo/pages/chat/pages/chatterScreen.dart';
+import 'package:shamo/pages/app/View/splash/splash_screen.dart';
+import 'package:shamo/pages/app/View/account/login.dart';
 
 //news
 
@@ -66,7 +68,7 @@ class AppRoute {
     onboarding: (context) => const Home(),
 
     //chat
-    chat: (context) => const ChatterScreen(),
+    chat: (context) => Login(),
 
     //artikel
     article: (context) => HomePage(),
