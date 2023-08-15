@@ -1213,6 +1213,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.0.3"
+  nb_utils:
+    dependency: "direct main"
+    description:
+      name: nb_utils
+      sha256: d646822d7487f8f17194ee575e6d5f205bde5e3ff1a613112c104df80c4fc4bb
+      url: "https://pub.dev"
+    source: hosted
+    version: "6.0.2"
   nested:
     dependency: transitive
     description:

@@ -18,12 +18,11 @@ import 'package:shamo/pages/LoginSignup/signup/signup_screen.dart';
 import 'package:shamo/onboarding/home.dart';
 //chat
 import 'package:shamo/pages/chat/pages/chatterScreen.dart';
-import 'package:shamo/pages/app/View/splash/splash_screen.dart';
-import 'package:shamo/pages/app/View/account/login.dart';
 
 //news
 
 import 'package:shamo/pages/news/view/screens/home_page.dart';
+import 'package:shamo/pages/artikel/screen/NBHomeScreen.dart';
 //video
 import 'package:shamo/pages/video/main_video_page.dart';
 
@@ -68,10 +67,10 @@ class AppRoute {
     onboarding: (context) => const Home(),
 
     //chat
-    chat: (context) => Login(),
+    chat: (context) => ChatterScreen(),
 
     //artikel
-    article: (context) => HomePage(),
+    article: (context) => NBHomeScreen(),
     //video
     video: (context) => const MainVideoPage(),
     //quiz
