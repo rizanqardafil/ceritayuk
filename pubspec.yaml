@@ -131,6 +131,8 @@ dependencies:
   animated_bottom_navigation_bar: ^1.2.0
 
   nb_utils: ^6.0.2
+  badges: ^2.0.2
+  expandable: ^5.0.1
 dev_dependencies:
   flutter_test:
     sdk: flutter
