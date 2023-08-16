@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:shamo/pages/home/home_page.dart';
 import 'package:shamo/pages/home/profile_page.dart';
 import 'package:shamo/theme.dart';
-import 'package:shamo/pages/video/screens/my_courses/my_courses.dart';
+import 'package:shamo/pages/materi/screens/my_courses/my_courses.dart';
 
-import 'package:shamo/pages/video/screens/course_library/course_library.dart';
+import 'package:shamo/pages/materi/screens/course_library/course_library.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({Key? key}) : super(key: key);
@@ -118,8 +118,7 @@ class _MainPageState extends State<MainPage> {
           return const HomePage();
         case 1:
           return const CourseLibrary();
-        case 2:
-          return const MyCoursesVideo();
+
         case 3:
           return const ProfilePage();
         default:

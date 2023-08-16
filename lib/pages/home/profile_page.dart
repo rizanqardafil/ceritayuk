@@ -16,6 +16,7 @@ class ProfilePage extends StatelessWidget {
         flexibleSpace: SafeArea(
           child: Container(
             padding: EdgeInsets.all(defaultMargin),
+            color: backgroundColor8,
             child: Row(
               children: [
                 ClipOval(
@@ -37,13 +38,14 @@ class ProfilePage extends StatelessWidget {
                           fontSize: 24,
                           fontWeight: semiBold,
                           overflow: TextOverflow.ellipsis,
-                          color: backgroundColor9
+                          color: backgroundColor4
                         ),
                       ),
                       Text(
                         '${user?.email}',
                         style: subtitleTextStyle.copyWith(
                           fontSize: 16,
+                          color: backgroundColor4
                         ),
                       ),
                     ],
