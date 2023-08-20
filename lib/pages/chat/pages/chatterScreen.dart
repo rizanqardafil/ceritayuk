@@ -13,7 +13,7 @@ String messageText = '';
 User? loggedInUser;
 
 class ChatterScreen extends StatefulWidget {
-  const ChatterScreen({ Key? key});
+  const ChatterScreen({Key? key});
 
   @override
   _ChatterScreenState createState() => _ChatterScreenState();
@@ -232,7 +232,7 @@ class _ChatterScreenState extends State<ChatterScreen> {
                     onPressed: () {
                       chatMsgTextController.clear();
                       _firestore.collection('messages').add({
-                        
+                        'sender': username,
                         'text': messageText,
                         'timestamp': DateTime.now().millisecondsSinceEpoch,
                         'senderemail': email,
@@ -262,7 +262,7 @@ class _ChatterScreenState extends State<ChatterScreen> {
 }
 
 class ChatStream extends StatelessWidget {
-  const ChatStream({ Key? key});
+  const ChatStream({Key? key});
 
   @override
   Widget build(BuildContext context) {
@@ -278,8 +278,10 @@ class ChatStream extends StatelessWidget {
               final msgData = message.data() as Map<String, dynamic>;
               final msgText = msgData['text'];
               final msgSender = msgData['sender'];
+              // final msgSenderEmail = message.data['senderemail'];
               final currentUser = loggedInUser?.displayName ?? '';
 
+              // print('MSG'+msgSender + '  CURR'+currentUser);
               final msgBubble = MessageBubble(
                 msgText: msgText ?? '',
                 msgSender: msgSender ?? '',
@@ -308,12 +310,12 @@ class ChatStream extends StatelessWidget {
 
 class MessageBubble extends StatelessWidget {
   final String msgText;
-  final String msgSender;
+  final String? msgSender;
   final bool user;
   const MessageBubble({
     Key? key,
     required this.msgText,
-    required this.msgSender,
+    this.msgSender,
     required this.user,
   }) : super(key: key);
 
@@ -324,8 +326,17 @@ class MessageBubble extends StatelessWidget {
       child: Column(
         crossAxisAlignment:
             user ? CrossAxisAlignment.end : CrossAxisAlignment.start,
+        mainAxisAlignment:
+            user ? MainAxisAlignment.end : MainAxisAlignment.start,
         children: <Widget>[
-          
+          Container(
+            padding: const EdgeInsets.symmetric(horizontal: 10),
+            child: Text(
+              '',
+              style: const TextStyle(
+                  fontSize: 13, fontFamily: 'Poppins', color: Colors.black87),
+            ),
+          ),
           Material(
             borderRadius: BorderRadius.only(
               bottomLeft: const Radius.circular(50),

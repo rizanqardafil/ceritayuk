@@ -1,8 +1,8 @@
 import 'dart:convert';
 
-import 'package:shamo/videoo/screens/course_content_screen/course_content_screen.dart';
-import 'package:shamo/videoo/screens/course_library/components/course_list_tile.dart';
-import 'package:shamo/videoo/widgets/navbar_title.dart';
+import 'package:shamo/pages/materi/screens/course_content_screen/course_content_screen.dart';
+import 'package:shamo/pages/materi/screens/course_library/components/course_list_tile.dart';
+import 'package:shamo/pages/materi/widgets/navbar_title.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -20,7 +20,6 @@ class _MyCoursesState extends State<MyCourses> {
   List<int> percentageList = [];
   int indexPercentage = -1;
   Future loadEnrolledCourseId() async {
-    print("hello");
     SharedPreferences preferences = await SharedPreferences.getInstance();
     List<String>? listOfEnrolledCoursesIdFromSharedPreferences =
         preferences.getStringList("enrolledCourses");

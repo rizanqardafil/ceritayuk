@@ -22,9 +22,12 @@ import 'package:shamo/pages/chat/pages/chatterScreen.dart';
 //news
 
 import 'package:shamo/pages/news/view/screens/home_page.dart';
+import 'package:shamo/pages/artikel/screen/NBHomeScreen.dart';
 //video
-import 'package:shamo/pages/video/main_video_page.dart';
-
+import 'package:shamo/pages/materi/screens/home/home_screen.dart';
+import 'package:shamo/pages/materi/screens/splash_screen/splash_screen.dart';
+import 'package:shamo/pages/asli/screens/home.dart';
+import 'package:shamo/pages/asli/screens/root_app.dart';
 class AppRoute {
   const AppRoute._();
 
@@ -66,12 +69,12 @@ class AppRoute {
     onboarding: (context) => const Home(),
 
     //chat
-    chat: (context) => const ChatterScreen(),
+    chat: (context) => ChatterScreen(),
 
     //artikel
-    article: (context) => HomePage(),
+    article: (context) => NBHomeScreen(),
     //video
-    video: (context) => const MainVideoPage(),
+    video: (context) => const HomeScreen(),
     //quiz
     homequiz: (context) => const HomeQuiz(),
     leaderboard: (context) => const LeaderboardScreen(),

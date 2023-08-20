@@ -23,7 +23,7 @@ import 'package:shamo/pages/chat/pages/chatterScreen.dart';
 
 import 'package:shamo/pages/news/view/screens/welcome_page.dart';
 //video
-import 'package:shamo/pages/video/main_video_page.dart';
+import 'package:shamo/pages/materi/screens/home/home_screen.dart';
 
 class AppRoute {
   const AppRoute._();
@@ -71,7 +71,7 @@ class AppRoute {
     //artikel
     article: (context) => WelcomePage(),
     //video
-    video: (context) => const MainVideoPage(),
+    video: (context) => const HomeScreen(),
     //quiz
     homequiz: (context) => const HomeQuiz(),
     leaderboard: (context) => const LeaderboardScreen(),

@@ -15,11 +15,13 @@ Color blackColor = const Color(0xff2E2E2E);
 Color backgroundColor0 = const Color(0xff7265E2);
 Color backgroundColor1 = const Color(0xff1F1D2B);
 Color backgroundColor2 = const Color(0xff2B2937);
-Color backgroundColor3 = const Color(0xff242231);
-Color backgroundColor4 = const Color(0xff252836);
+Color backgroundColor3 = const Color(0xffFFFFFF);
+Color backgroundColor4 = const Color(0xffFFFFFF);
 Color backgroundColor5 = const Color(0xff2B2844);
 Color backgroundColor6 = const Color(0xffECEDEF);
 Color backgroundColor7 = const Color(0xffFFFFFF);
+Color backgroundColor8 = const Color(0xff21678a);
+Color backgroundColor9 = const Color(0xff000000);
 
 // Text Color
 Color primaryTextColor = const Color(0xffF1F0F2);
