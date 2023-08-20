@@ -186,7 +186,7 @@ class _DiscoverPageState extends State<DiscoverPage>
                         text: 'Asian',
                       ),
                       Tab(
-                        text: 'Sports',
+                        text: 'Sexual Behavior',
                       ),
                     ],
                   ),

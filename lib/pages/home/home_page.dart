@@ -5,7 +5,6 @@ import 'package:shamo/widgets/video_card.dart';
 import 'package:shamo/widgets/article_card.dart';
 import 'package:shamo/widgets/quiz_card.dart';
 import 'package:shamo/widgets/lapor_card.dart';
-import 'package:shamo/pages/home/datas/user_profile.dart';
 import 'package:shamo/pages/home/colors.dart';
 import 'package:shamo/pages/home/padding.dart';
 import 'package:shamo/pages/home/widgets/clipper.dart';
@@ -18,12 +17,13 @@ class HomePage extends StatefulWidget {
   @override
   _HomePageState createState() => _HomePageState();
 }
+
 class _HomePageState extends State<HomePage> {
   Widget getBody() {
     var size = MediaQuery.of(context).size;
     final User? user = FirebaseAuth.instance.currentUser;
     return SingleChildScrollView(
-      padding: const EdgeInsets.only(bottom: spacer-40),
+      padding: const EdgeInsets.only(bottom: spacer - 40),
       child: Column(
         children: [
           Stack(

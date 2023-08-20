@@ -1,44 +1,43 @@
-import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:shamo/pages/quiz/providers/auth.dart';
+import 'package:firebase_database/firebase_database.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 import '../core/app_route.dart';
 
-class HomeScreen extends ConsumerWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final auth = ref.watch(authProvider);
+  _HomeScreenState createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  @override
+  Widget build(BuildContext context) {
+    final User? user = FirebaseAuth.instance.currentUser;
+
     return Scaffold(
-      appBar: AppBar(title: const Text('home')),
+      appBar: AppBar(title: const Text('Home')),
       body: SizedBox(
         width: double.infinity,
         child: Column(
-          // padding: const EdgeInsets.all(20),
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             CircleAvatar(
               radius: 50,
               backgroundImage: NetworkImage(
-                auth.user.imageUrl ??
+                user?.photoURL ??
                     'https://upload.wikimedia.org/wikipedia/commons/a/aa/Sin_cara.png',
               ),
             ),
             const SizedBox(height: 10),
-            Text('Name: ${auth.user.name}'),
-            Text('Email: ${auth.user.email}'),
+            Text('Name: ${user?.displayName ?? "Unknown"}'),
+            Text('Email: ${user?.email ?? "Unknown"}'),
             const SizedBox(height: 20),
             ElevatedButton.icon(
               onPressed: () async {
-                try {
-                  await auth.logout();
-                } catch (e) {
-                  print(e);
-                  return;
-                }
+                // Implement your logout logic here
                 Navigator.of(context).pushReplacementNamed(AppRoute.welcome);
               },
               icon: const Icon(Icons.logout),
@@ -58,17 +57,11 @@ class HomeScreen extends ConsumerWidget {
             ),
             ElevatedButton(
               onPressed: () async {
-                // final url = Uri.parse(
-                //     'https://nasa-petacode-default-rtdb.firebaseio.com/rooms/room1.json');
-
-                // await http.patch(url, body: {'user1': '3'});
-
-                final database = FirebaseDatabase.instance.ref();
-
+                final database = FirebaseDatabase.instance.reference();
                 final leaderBoardRef = database.child('rooms/room1');
                 await leaderBoardRef.update({'user1': 'rrrr'});
               },
-              child: const Text('do'),
+              child: const Text('Update Database'),
             ),
           ],
         ),

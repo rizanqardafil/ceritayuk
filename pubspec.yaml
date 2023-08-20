@@ -133,6 +133,18 @@ dependencies:
   nb_utils: ^6.0.2
   badges: ^2.0.2
   expandable: ^5.0.1
+
+  encrypt: ^5.0.1
+  bubble: ^1.2.1
+  sticky_grouped_list: ^3.1.0
+
+  intl_phone_field: ^3.1.0
+  sign_in_with_apple: ^4.0.0
+
+  flip_card: ^0.7.0
+  appinio_swiper: ^2.0.2
+  
+  
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -156,6 +168,7 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
+    - assets/
     - assets/images/
     - assets/icons/
     - assets/jsons/
@@ -163,6 +176,7 @@ flutter:
     - assets/lottie/
     - assets/DB/papers/
     - assets/t-images/
+    - assets/animations/
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
 

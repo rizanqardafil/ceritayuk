@@ -1,50 +1,101 @@
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:shamo/onboarding/home.dart';
+import 'package:provider/provider.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+
+import 'package:shamo/pages/rizan/screens/auth_type_screen.dart';
+import 'package:shamo/pages/rizan/screens/profile_setup_screen.dart';
+
+import 'package:shamo/pages/rizan/providers/auth_provider.dart';
+import 'package:shamo/pages/rizan/providers/user_data_provider.dart';
 import 'package:shamo/route.dart';
-import 'package:shamo/pages/quiz/providers/auth.dart';
-import 'package:shamo/pages/quiz/providers/shared_preferences.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+import 'package:get/get.dart';
 
 import 'package:shamo/pages/splash_page.dart';
+import 'package:shamo/onboarding/home.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  final sharedPreferences = await SharedPreferences.getInstance();
   await Firebase.initializeApp();
-
-  runApp(ProviderScope(
-      overrides: [spProvider.overrideWithValue(sharedPreferences)],
-      child: const MyApp()));
+  runApp(const MainApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class MainApp extends StatelessWidget {
+  const MainApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Consumer(
-      builder: (context, ref, child) {
-        final auth = ref.watch(authProvider);
-        final futureAuth = ref.watch(futureAuthProvider);
-        return MaterialApp(
-          title: 'NASA App',
-          // home: const WelcomeScreen(),
-          home: futureAuth.when(data: (data) {
-            return auth.isAuth ? const Home() : const SplashPage();
-          }, error: (e, st) {
-            return Scaffold(
-              body: Center(child: Text(e.toString())),
-            );
-          }, loading: () {
-            return const Scaffold(
-              body: Center(child: CircularProgressIndicator()),
-            );
-          }),
-          routes: AppRoute.routes,
-        );
-      },
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          create: (context) => AuthProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => UserDataProvider(),
+        ),
+      ],
+      child: GetMaterialApp(
+        getPages: appRoutes,
+        home: StreamBuilder<User?>(
+          stream: FirebaseAuth.instance.authStateChanges(),
+          builder: (context, snapshot) {
+            final auth = Provider.of<AuthProvider>(context, listen: false);
+
+            if (snapshot.connectionState == ConnectionState.waiting) {
+              return const SplashPage();
+            } else if (snapshot.hasData) {
+              if (auth.isAuth) {
+                return FutureBuilder(
+                  future: Provider.of<UserDataProvider>(context, listen: false)
+                      .fetchAndSetUserProfileInfo(onlyFetch: true),
+                  builder: (context, snapshot) {
+                    if (snapshot.connectionState == ConnectionState.waiting) {
+                      return const SplashPage();
+                    } else {
+                      return const Home();
+                    }
+                  },
+                );
+              } else {
+                final isNewUserFuture =
+                    Provider.of<AuthProvider>(context, listen: false)
+                        .isNewUser();
+
+                return FutureBuilder(
+                  future: isNewUserFuture,
+                  builder: (context, snapshot) {
+                    if (snapshot.connectionState == ConnectionState.waiting) {
+                      return const SplashPage();
+                    } else if (snapshot.hasData) {
+                      if (snapshot.data == true) {
+                        return const ProfileSetupScreen();
+                      } else {
+                        return FutureBuilder(
+                          future: Provider.of<UserDataProvider>(context,
+                                  listen: false)
+                              .fetchAndSetUserProfileInfo(onlyFetch: true),
+                          builder: (context, snapshot) {
+                            if (snapshot.connectionState ==
+                                ConnectionState.waiting) {
+                              return const SplashPage();
+                            } else {
+                              return const Home();
+                            }
+                          },
+                        );
+                      }
+                    } else {
+                      return const Home();
+                    }
+                  },
+                );
+              }
+            } else {
+              return const AuthTypeScreen();
+            }
+          },
+        ),
+      ),
     );
   }
 }

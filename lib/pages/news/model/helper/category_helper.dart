@@ -1,8 +1,9 @@
 import 'package:shamo/pages/news/model/core/category.dart';
 
 class CategoryHelper {
-  static List<Category> categoryData =
-      categoryRawData.map((data) => Category(name: data['name'] ?? '')).toList();
+  static List<Category> categoryData = categoryRawData
+      .map((data) => Category(name: data['name'] ?? ''))
+      .toList();
 }
 
 var categoryRawData = [
@@ -12,7 +13,7 @@ var categoryRawData = [
   {'name': 'Europe'},
   {'name': 'Australia'},
   {'name': 'America'},
-  {'name': 'Sports'},
+  {'name': 'Sexual Behavior'},
   {'name': 'Health'},
   {'name': 'Politics'},
 ];

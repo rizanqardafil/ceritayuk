@@ -11,17 +11,23 @@ import 'package:shamo/pages/artikel/utils/NBImages.dart';
 class NBHomeScreen extends StatefulWidget {
   static String tag = '/NBHomeScreen';
 
+  const NBHomeScreen({super.key});
+
   @override
   NBHomeScreenState createState() => NBHomeScreenState();
 }
 
-class NBHomeScreenState extends State<NBHomeScreen> with SingleTickerProviderStateMixin {
-  final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
+class NBHomeScreenState extends State<NBHomeScreen>
+    with SingleTickerProviderStateMixin {
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
   List<NBDrawerItemModel> mDrawerList = nbGetDrawerItems();
 
   List<NBNewsDetailsModel> mNewsList = nbGetNewsDetails();
-  List<NBNewsDetailsModel> mTechNewsList = [], mFashionNewsList = [], mSportsNewsList = [], mScienceNewsList = [];
+  List<NBNewsDetailsModel> mTechNewsList = [],
+      mFashionNewsList = [],
+      mSportsNewsList = [],
+      mScienceNewsList = [];
 
   TabController? tabController;
 
@@ -32,18 +38,16 @@ class NBHomeScreenState extends State<NBHomeScreen> with SingleTickerProviderSta
   }
 
   Future<void> init() async {
-    tabController = TabController(length: 5, vsync: this);
-    mNewsList.forEach((element) {
-      if (element.categoryName == 'Technology') {
-        mTechNewsList.add(element);
-      } else if (element.categoryName == 'Fashion') {
+    tabController = TabController(length: 4, vsync: this);
+    for (var element in mNewsList) {
+      if (element.categoryName == 'Health and Care') {
         mFashionNewsList.add(element);
-      } else if (element.categoryName == 'Sports') {
+      } else if (element.categoryName == 'Sexual Behavior') {
         mSportsNewsList.add(element);
-      } else if (element.categoryName == 'Science') {
+      } else if (element.categoryName == 'Habit Culture') {
         mScienceNewsList.add(element);
       }
-    });
+    }
   }
 
   @override
@@ -62,17 +66,18 @@ class NBHomeScreenState extends State<NBHomeScreen> with SingleTickerProviderSta
     return Scaffold(
       key: _scaffoldKey,
       appBar: AppBar(
-        leading: IconButton(
-            icon: Icon(Icons.menu,color: Colors.grey),
-            onPressed: () {
-              _scaffoldKey.currentState!.openDrawer();
-            }),
         title: Text('News Blog', style: boldTextStyle(color: black, size: 20)),
         backgroundColor: white,
         centerTitle: true,
         bottom: TabBar(
           controller: tabController,
-          tabs: [Tab(text: 'All News'), Tab(text: 'Technology'), Tab(text: 'Fashion'), Tab(text: 'Sports'), Tab(text: 'Science')],
+          tabs: const [
+            Tab(text: 'All News'),
+            
+            Tab(text: 'Health and Care'),
+            Tab(text: 'Sexual Behavior'),
+            Tab(text: 'Habit Culture')
+          ],
           labelStyle: boldTextStyle(),
           labelColor: black,
           unselectedLabelStyle: primaryTextStyle(),
@@ -88,13 +93,14 @@ class NBHomeScreenState extends State<NBHomeScreen> with SingleTickerProviderSta
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Container(
+            SizedBox(
               height: 130,
               child: DrawerHeader(
-                margin: EdgeInsets.all(0),
+                margin: const EdgeInsets.all(0),
                 child: ListTile(
-                  contentPadding: EdgeInsets.only(left: 0),
-                  leading: CircleAvatar(backgroundImage: AssetImage(NBProfileImage), radius: 30),
+                  contentPadding: const EdgeInsets.only(left: 0),
+                  leading: const CircleAvatar(
+                      backgroundImage: AssetImage(NBProfileImage), radius: 30),
                   title: Text('Robert Fox', style: boldTextStyle()),
                   subtitle: Text('View Profile', style: secondaryTextStyle()),
                   onTap: () {
@@ -105,13 +111,15 @@ class NBHomeScreenState extends State<NBHomeScreen> with SingleTickerProviderSta
               ),
             ),
             ListView.separated(
-              padding: EdgeInsets.all(8),
+              padding: const EdgeInsets.all(8),
               separatorBuilder: (_, index) {
-                return Divider();
+                return const Divider();
               },
               itemCount: mDrawerList.length,
               itemBuilder: (_, index) {
-                return Text('${mDrawerList[index].title}', style: boldTextStyle()).onTap(() {
+                return Text('${mDrawerList[index].title}',
+                        style: boldTextStyle())
+                    .onTap(() {
                   if (index == 0) {
                     finish(context);
                   } else {
@@ -128,9 +136,9 @@ class NBHomeScreenState extends State<NBHomeScreen> with SingleTickerProviderSta
         controller: tabController,
         children: [
           NBAllNewsComponent(),
-          PurchaseMoreScreen(false),
+          
           NBNewsComponent(list: mFashionNewsList),
-          PurchaseMoreScreen(false),
+          NBNewsComponent(list: mSportsNewsList),
           NBNewsComponent(list: mScienceNewsList),
         ],
       ),

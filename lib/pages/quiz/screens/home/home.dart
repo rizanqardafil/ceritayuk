@@ -2,9 +2,8 @@ import 'package:animator/animator.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:shamo/pages/quiz/core/app_route.dart';
-import 'package:shamo/pages/quiz/providers/auth.dart';
-
+import 'package:shamo/route.dart';
+import 'package:shamo/pages/rizan/providers/auth_provider.dart';
 import 'custom_stack.dart';
 import 'leader.dart';
 
@@ -69,13 +68,13 @@ class HomeQuiz extends ConsumerWidget {
                         ],
                       ),
                     ),
-                    IconButton(
-                      onPressed: () {
-                        Navigator.of(context).pushNamed(AppRoute.settings);
-                      },
-                      icon: const Icon(Icons.settings),
-                      color: Colors.white,
-                    )
+                    // IconButton(
+                    //   onPressed: () {
+                    //     Navigator.of(context).pushNamed(AppRoute.settings);
+                    //   },
+                    //   icon: const Icon(Icons.settings),
+                    //   color: Colors.white,
+                    // )
                   ],
                 ),
               ),
@@ -119,9 +118,9 @@ class HomeQuiz extends ConsumerWidget {
                     Padding(
                       padding: const EdgeInsets.only(top: 25),
                       child: InkWell(
-                        onTap: () {
-                          Navigator.of(context).pushNamed(AppRoute.levels);
-                        },
+                        // onTap: () {
+                        //   Navigator.of(context).pushNamed(AppRoute.levels);
+                        // },
                         child: const CustomStack(
                           image: 'assets/images/Component_5.png',
                           icon: 'assets/images/cloud 1.png',
@@ -135,10 +134,10 @@ class HomeQuiz extends ConsumerWidget {
                       ),
                     ),
                     InkWell(
-                      onTap: () {
-                        Navigator.of(context)
-                            .pushNamed(AppRoute.multiplayerSearch);
-                      },
+                      // onTap: () {
+                      //   Navigator.of(context)
+                      //       .pushNamed(AppRoute.multiplayerSearch);
+                      // },
                       child: const CustomStack(
                         image: 'assets/images/Component_4.png',
                         icon: 'assets/images/NetBar.png',
@@ -151,10 +150,10 @@ class HomeQuiz extends ConsumerWidget {
                       ),
                     ),
                     InkWell(
-                      onTap: () {
-                        Navigator.of(context)
-                            .pushNamed(AppRoute.offlineMultiplayer);
-                      },
+                      // onTap: () {
+                      //   Navigator.of(context)
+                      //       .pushNamed(AppRoute.offlineMultiplayer);
+                      // },
                       child: const CustomStack(
                         image: 'assets/images/Component_6.png',
                         icon: 'assets/images/group 1.png',
