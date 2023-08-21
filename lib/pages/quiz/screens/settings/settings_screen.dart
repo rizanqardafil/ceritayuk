@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:provider/provider.dart';
 import 'package:shamo/pages/quiz/core/app_route.dart';
 import 'package:shamo/pages/quiz/providers/auth.dart';
 
 import 'custom_divider.dart';
 import 'custom_setting.dart';
 
-class SettingsScreen extends ConsumerWidget {
+class SettingsScreen extends StatelessWidget {
   const SettingsScreen({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context, ref) {
-    final auth = ref.watch(authProvider);
+  Widget build(BuildContext context) {
+    final auth = Provider.of<Auth>(context);
     return Scaffold(
       body: Container(
         decoration: const BoxDecoration(

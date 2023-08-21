@@ -1,18 +1,19 @@
 import 'package:animator/animator.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:shamo/route.dart';
+import 'package:provider/provider.dart'; // Import from provider package
+
 import 'package:shamo/pages/rizan/providers/auth_provider.dart';
 import 'custom_stack.dart';
-import 'leader.dart';
 
-class HomeQuiz extends ConsumerWidget {
+class HomeQuiz extends StatelessWidget {
   const HomeQuiz({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context, ref) {
-    final auth = ref.watch(authProvider);
+  Widget build(BuildContext context) {
+    final auth = Provider.of<AuthProvider>(
+        context); // Use Provider.of to access AuthProvider
+
     return Scaffold(
       body: SafeArea(
         child: Container(
@@ -54,13 +55,6 @@ class HomeQuiz extends ConsumerWidget {
                             ),
                           ),
                           const SizedBox(width: 5),
-                          Text(
-                            '${auth.user.points} points',
-                            style: const TextStyle(
-                              color: Color(0xff001663),
-                            ),
-                          ),
-                          const SizedBox(width: 5),
                           Image.asset(
                             'assets/images/gem.png',
                             width: 25,
@@ -68,13 +62,7 @@ class HomeQuiz extends ConsumerWidget {
                         ],
                       ),
                     ),
-                    // IconButton(
-                    //   onPressed: () {
-                    //     Navigator.of(context).pushNamed(AppRoute.settings);
-                    //   },
-                    //   icon: const Icon(Icons.settings),
-                    //   color: Colors.white,
-                    // )
+                    
                   ],
                 ),
               ),
@@ -118,9 +106,9 @@ class HomeQuiz extends ConsumerWidget {
                     Padding(
                       padding: const EdgeInsets.only(top: 25),
                       child: InkWell(
-                        // onTap: () {
-                        //   Navigator.of(context).pushNamed(AppRoute.levels);
-                        // },
+                        onTap: () {
+                          Navigator.of(context).pushNamed('/levels');
+                        },
                         child: const CustomStack(
                           image: 'assets/images/Component_5.png',
                           icon: 'assets/images/cloud 1.png',
@@ -134,26 +122,9 @@ class HomeQuiz extends ConsumerWidget {
                       ),
                     ),
                     InkWell(
-                      // onTap: () {
-                      //   Navigator.of(context)
-                      //       .pushNamed(AppRoute.multiplayerSearch);
-                      // },
-                      child: const CustomStack(
-                        image: 'assets/images/Component_4.png',
-                        icon: 'assets/images/NetBar.png',
-                        text1: 'Online Mode',
-                        text2: 'play with players',
-                        padding_left: 7,
-                        padding_top: 80,
-                        padding: 28,
-                        color: Color(0xff444444),
-                      ),
-                    ),
-                    InkWell(
-                      // onTap: () {
-                      //   Navigator.of(context)
-                      //       .pushNamed(AppRoute.offlineMultiplayer);
-                      // },
+                      onTap: () {
+                        Navigator.of(context).pushNamed('/offline_multiplayer');
+                      },
                       child: const CustomStack(
                         image: 'assets/images/Component_6.png',
                         icon: 'assets/images/group 1.png',
@@ -166,7 +137,6 @@ class HomeQuiz extends ConsumerWidget {
                       ),
                     ),
                   ]),
-              const Leader(),
               const SizedBox(height: 25),
             ],
           ),

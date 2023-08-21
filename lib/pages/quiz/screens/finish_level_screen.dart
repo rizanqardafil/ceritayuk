@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:provider/provider.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:shamo/pages/quiz/providers/auth.dart';
+import 'package:shamo/pages/rizan/providers/auth_provider.dart';
 
 import '../providers/questions.dart';
 import '../widgets/custom_button.dart';
 import '../widgets/score_card.dart';
 
-class FinishLevelScreen extends ConsumerWidget {
+class FinishLevelScreen extends StatelessWidget {
   const FinishLevelScreen({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final questions = ref.watch(questionsProvider);
-    final auth = ref.watch(authProvider);
+  Widget build(BuildContext context) {
+    final questions = Provider.of<QuestionsProvider>(context);
+    final auth = Provider.of<AuthProvider>(context);
     return SafeArea(
       child: Scaffold(
         body: Container(

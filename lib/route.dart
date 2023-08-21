@@ -17,22 +17,19 @@ import 'package:shamo/pages/rizan/screens/message_screen.dart';
 import 'package:shamo/pages/rizan/screens/profile_screen.dart';
 import 'package:shamo/pages/rizan/screens/manage_users_screen.dart';
 import 'package:shamo/pages/rizan/screens/live_chat_message_screen.dart';
-import 'package:shamo/pages/rifas/views/home_screen.dart';
+
 //news
 import 'package:shamo/pages/artikel/screen/NBHomeScreen.dart';
 //video
 import 'package:shamo/pages/materi/screens/home/home_screen.dart';
 //quiz
+import 'package:shamo/pages/quiz/screens/home/home.dart';
 import 'package:shamo/pages/quiz/screens/finish_level_screen.dart';
-import 'package:shamo/pages/quiz/screens/game_screen.dart';
 import 'package:shamo/pages/quiz/screens/levels_screen.dart';
-import 'package:shamo/pages/quiz/screens/multiplayer_search_screen.dart';
 import 'package:shamo/pages/quiz/screens/offline_game_screen.dart';
 import 'package:shamo/pages/quiz/screens/offline_multiplayer_result_screen.dart';
 import 'package:shamo/pages/quiz/screens/offline_multiplayer_screen.dart';
-import 'package:shamo/pages/quiz/screens/online_finish_screen.dart';
 import 'package:shamo/pages/quiz/screens/settings/settings_screen.dart';
-import 'package:shamo/pages/quiz/screens/leaderboard_screen.dart';
 
 import 'package:get/get.dart';
 
@@ -107,19 +104,7 @@ var appRoutes = [
   ),
   GetPage(
     name: '/quiz',
-    page: () => const HomePageQuiz(),
-  ),
-  GetPage(
-    name: '/leaderboard',
-    page: () => const LeaderboardScreen(),
-  ),
-  GetPage(
-    name: '/multiplayer-search',
-    page: () => const MultiplayerSearchScreen(),
-  ),
-  GetPage(
-    name: '/game',
-    page: () => const GameScreen(),
+    page: () => const HomeQuiz(),
   ),
   GetPage(
     name: '/levels',
@@ -132,10 +117,6 @@ var appRoutes = [
   GetPage(
     name: '/finish-Level',
     page: () => const FinishLevelScreen(),
-  ),
-  GetPage(
-    name: '/online-finish',
-    page: () => const OnlineFinishScreen(),
   ),
   GetPage(
     name: '/settings',

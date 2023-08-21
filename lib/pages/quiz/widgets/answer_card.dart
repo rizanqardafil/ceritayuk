@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../providers/questions.dart';
 
@@ -54,7 +53,7 @@ IconData adaptiveIcon(AnswerCardStatus answerCardStatus) {
   }
 }
 
-class AnswerCard extends ConsumerWidget {
+class AnswerCard extends StatelessWidget {
   const AnswerCard({
     super.key,
     required this.answer,
@@ -67,9 +66,7 @@ class AnswerCard extends ConsumerWidget {
   final VoidCallback? onTap;
 
   @override
-  Widget build(BuildContext context, ref) {
-    final questions = ref.watch(questionsProvider);
-
+  Widget build(BuildContext context) {
     return InkWell(
       onTap: onTap,
       child: AnimatedContainer(

@@ -1,25 +1,25 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:provider/provider.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:shamo/pages/quiz/core/app_route.dart';
 import 'package:shamo/pages/quiz/providers/offline.dart';
 
 import '../widgets/answer_card.dart';
 import '../widgets/custom_button.dart';
 
-class OfflineMultiplayerScreen extends ConsumerWidget {
+class OfflineMultiplayerScreen extends StatelessWidget {
   const OfflineMultiplayerScreen({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final offline = ref.watch(offlineProvider);
+  Widget build(BuildContext context) {
+    final offline = Provider.of<OfflineProvider>(context);
 
-    ref.listen<Offline>(offlineProvider, (previous, next) {
-      if (next.isFinish) {
+    offline.addListener(() {
+      if (offline.isFinish) {
         Navigator.of(context)
-            .pushReplacementNamed(AppRoute.offlineMultiplayerResult);
+            .pushReplacementNamed('offline-multiplayer-result');
       }
     });
+
     return SafeArea(
       child: Scaffold(
         body: Container(
@@ -174,7 +174,7 @@ class OfflineMultiplayerScreen extends ConsumerWidget {
   }
 }
 
-class HandButton extends ConsumerWidget {
+class HandButton extends StatelessWidget {
   const HandButton({
     required this.color,
     required this.isUser,
@@ -185,8 +185,8 @@ class HandButton extends ConsumerWidget {
   final bool isUser;
 
   @override
-  Widget build(BuildContext context, ref) {
-    final offline = ref.watch(offlineProvider);
+  Widget build(BuildContext context) {
+    final offline = Provider.of<OfflineProvider>(context);
     return InkWell(
       onTap: offline.isUserAnswering != null
           ? null
@@ -205,9 +205,3 @@ class HandButton extends ConsumerWidget {
   }
 }
 
-// getOpacity(bool? isAnswering, bool isUser) {
-//   if (isAnswering != null && !isUser) {
-//     return .4;
-//   }
-//   return 1;
-// }

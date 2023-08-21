@@ -83,7 +83,7 @@ dependencies:
   flutter_zoom_drawer: ^2.3.1+1
 
   page_route_animator: ^1.0.3
-  flutter_riverpod: ^2.3.6
+  
   audioplayers: ^4.1.0
   emoji_picker_flutter: ^1.6.1
   giphy_picker: ^3.0.1
@@ -143,7 +143,9 @@ dependencies:
 
   flip_card: ^0.7.0
   appinio_swiper: ^2.0.2
-  
+
+  provider: ^6.0.5
+  flutter_riverpod: ^2.3.6
   
 dev_dependencies:
   flutter_test:

@@ -1,11 +1,11 @@
 import 'dart:async';
 
 import 'package:flutter/cupertino.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter/material.dart'; // Import the material package
+// Import the provider package
 import 'package:shamo/pages/quiz/data/questions_data.dart';
 import 'package:shamo/pages/quiz/models/game_user.dart';
 import 'package:shamo/pages/quiz/models/question.dart';
-import 'package:shamo/pages/quiz/providers/auth.dart';
 
 enum AnswerCardStatus {
   normal,
@@ -14,12 +14,10 @@ enum AnswerCardStatus {
   right,
 }
 
-final questionsProvider = ChangeNotifierProvider<Questions>((ref) {
-  return Questions(ref.watch(authProvider).user);
-});
+// Define the provider using ChangeNotifierProvider
+class QuestionsProvider extends ChangeNotifier {
+  QuestionsProvider(this.user);
 
-class Questions extends ChangeNotifier {
-  Questions(this.user);
   final GameUser user;
   int? currentLevel;
   int currentQuestionIndex = 0;
@@ -126,7 +124,7 @@ class Questions extends ChangeNotifier {
   void nextQuestion() {
     if (currentQuestionIndex == 3) {
       currentScore = rightAnswers * (60 - seconds);
- 
+
       seconds = 60;
       timer!.cancel();
       timer = null;

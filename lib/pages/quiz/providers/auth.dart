@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+// import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:shamo/pages/quiz/models/game_user.dart';
 import 'package:http/http.dart' as http;
@@ -85,18 +85,18 @@ Future<User?> emailSignin(String email, String password) async {
   return null;
 }
 
-final authProvider = ChangeNotifierProvider<Auth>((ref) {
-  return Auth();
-});
+// final authProvider = ChangeNotifierProvider<Auth>((ref) {
+//   return Auth();
+// });
 
-final futureAuthProvider = FutureProvider<void>((ref) async {
-  final auth = ref.watch(authProvider);
-  await auth.getUser();
-});
+// final futureAuthProvider = FutureProvider<void>((ref) async {
+//   final auth = ref.watch(authProvider);
+//   await auth.getUser();
+// });
 
 class Auth with ChangeNotifier {
   GameUser user = GameUser();
-
+  int get offlineLevel => user.offlineLevel;
   bool get isAuth => user.isAuth;
 
   Future<void> getUser() async {

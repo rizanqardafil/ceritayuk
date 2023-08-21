@@ -1,25 +1,25 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:provider/provider.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:shamo/pages/quiz/core/app_route.dart';
 import 'package:shamo/pages/quiz/providers/questions.dart';
 import 'package:shamo/pages/quiz/widgets/answer_card.dart';
 import 'package:shamo/pages/quiz/widgets/custom_button.dart';
 
 import '../widgets/custom_timer.dart';
 
-class OfflineGameScreen extends ConsumerWidget {
+class OfflineGameScreen extends StatelessWidget {
   const OfflineGameScreen({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final questions = ref.watch(questionsProvider);
+  Widget build(BuildContext context) {
+    
+    final questionsProvider = Provider.of<QuestionsProvider>(context);
 
-    ref.listen<Questions>(questionsProvider, (previous, next) {
-      if (next.isFinish || next.seconds == 0) {
-        Navigator.of(context).pushReplacementNamed(AppRoute.finishLevel);
-      }
-    });
+    if (questionsProvider.isFinish || questionsProvider.seconds == 0) {
+      WidgetsBinding.instance!.addPostFrameCallback((_) {
+        Navigator.of(context).pushReplacementNamed('/finish-Level');
+      });
+    }
     return SafeArea(
       child: Scaffold(
         body: Container(
@@ -42,7 +42,7 @@ class OfflineGameScreen extends ConsumerWidget {
                   Padding(
                     padding: const EdgeInsets.all(10),
                     child: Text(
-                      'level ${(questions.currentLevel ?? 0) + 1}',
+                      'level ${(questionsProvider.currentLevel ?? 0) + 1}',
                       style: const TextStyle(
                         color: Color(0xff37EBBC),
                         fontSize: 18,
@@ -55,7 +55,7 @@ class OfflineGameScreen extends ConsumerWidget {
                     padding: const EdgeInsets.symmetric(horizontal: 15),
                     width: double.infinity,
                     child: Text(
-                      'Question ${questions.currentQuestionIndex + 1}/4',
+                      'Question ${questionsProvider.currentQuestionIndex + 1}/4',
                       textAlign: TextAlign.start,
                       style: const TextStyle(fontSize: 25),
                     ),
@@ -72,30 +72,31 @@ class OfflineGameScreen extends ConsumerWidget {
                       child: ListView(
                         children: [
                           Text(
-                            questions.currentQuestion.question,
+                            questionsProvider.currentQuestion.question,
                             style: const TextStyle(color: Colors.black),
                             textAlign: TextAlign.start,
                           ),
-                           if (questions.currentQuestion.image != null)
+                          if (questionsProvider.currentQuestion.image != null)
                             Image.asset(
-                                'assets/t-images/${questions.currentQuestion.image}'),
+                                'assets/t-images/${questionsProvider.currentQuestion.image}'),
                           for (int i = 0;
-                              i < questions.currentAnswers.length;
+                              i < questionsProvider.currentAnswers.length;
                               i++)
                             AnswerCard(
-                              answer: questions.currentAnswers[i],
-                              answerCardStatus: questions.answersStatus[i],
-                              onTap: questions.isChoseAnswer
+                              answer: questionsProvider.currentAnswers[i],
+                              answerCardStatus:
+                                  questionsProvider.answersStatus[i],
+                              onTap: questionsProvider.isChoseAnswer
                                   ? null
                                   : () {
-                                      questions.chooseAnswer(i);
+                                      questionsProvider.chooseAnswer(i);
                                     },
                             ),
-                          if (questions.isChoseAnswer) ...[
+                          if (questionsProvider.isChoseAnswer) ...[
                             const SizedBox(height: 20),
                             CustomButton(
                               padding: 0,
-                              onPressed: questions.nextQuestion,
+                              onPressed: questionsProvider.nextQuestion,
                               text: 'Next Question',
                             ),
                           ]

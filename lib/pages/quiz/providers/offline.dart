@@ -1,15 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shamo/pages/quiz/data/questions_data.dart';
 import 'package:shamo/pages/quiz/models/question.dart';
 
 import 'questions.dart';
 
-final offlineProvider = ChangeNotifierProvider<Offline>((ref) {
-  return Offline();
-});
-
-class Offline extends ChangeNotifier {
+class OfflineProvider extends ChangeNotifier {
   int currentQuestionIndex = 0;
   int? currentQuestionAnswerIndex;
   bool? isUserAnswering;

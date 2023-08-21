@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:provider/provider.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:shamo/pages/quiz/widgets/custom_divider.dart';
 import 'package:shamo/pages/quiz/widgets/custom_icon_button.dart';
@@ -9,11 +9,11 @@ import '../providers/auth.dart';
 import '../widgets/signin_form.dart';
 import '../widgets/wave.dart';
 
-class SignupScreen extends ConsumerWidget {
+class SignupScreen extends StatelessWidget {
   const SignupScreen({Key? key}) : super(key: key);
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final auth = ref.watch(authProvider);
+  Widget build(BuildContext context) {
+    final auth = Provider.of<Auth>(context);
     return Scaffold(
       backgroundColor: const Color(0xff8165FF),
       body: ListView(

@@ -1,17 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:shamo/pages/quiz/core/app_route.dart';
-import 'package:shamo/pages/quiz/providers/auth.dart';
+import 'package:provider/provider.dart';
+import 'package:shamo/pages/rizan/providers/auth_provider.dart';
 import 'package:shamo/pages/quiz/providers/questions.dart';
 import 'package:shamo/pages/quiz/widgets/level_card.dart';
 
-class LevelsScreen extends ConsumerWidget {
+class LevelsScreen extends StatelessWidget {
   const LevelsScreen({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final questions = ref.watch(questionsProvider);
-    final auth = ref.watch(authProvider);
+  Widget build(BuildContext context) {
+
+    final auth = Provider.of<AuthProvider>(context);
+    final questionsProvider = Provider.of<QuestionsProvider>(context);
+
+ 
     return Scaffold(
       body: ListView(
         children: [
@@ -44,12 +46,12 @@ class LevelsScreen extends ConsumerWidget {
             itemBuilder: (BuildContext context, int index) {
               return LevelCard(
                 level: index + 1,
-                stars: questions.ratings[index],
-                isOpen: index <= auth.user.offlineLevel,
+                stars: questionsProvider.ratings[index],
+                isOpen: index <= auth.offlineLevel,
                 // isOpen: true,
                 onPressed: () {
-                  questions.chooseLevel(index);
-                  Navigator.of(context).pushNamed(AppRoute.offlineGame);
+                  questionsProvider.chooseLevel(index);
+                  Navigator.of(context).pushNamed('/offline-game');
                 },
               );
             },

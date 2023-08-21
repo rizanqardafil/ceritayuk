@@ -170,59 +170,59 @@ class _SigninFormState extends State<SigninForm> {
               onChanged: (value) => setState(() {}),
               onFieldSubmitted: (_) => _repeatPasswordFocusNode.unfocus(),
             ),
-          Consumer(
-            builder: (context, ref, child) {
-              final auth = ref.read(authProvider);
-              return CustomButton(
-                text: widget.isSignup ? 'Sign up' : 'Sign in',
-                onPressed: () async {
-                  setState(() {
-                    isSubmitted = true;
-                  });
-                  if (_emailErrorText != null ||
-                      _passwordErrorText != null ||
-                      (widget.isSignup &&
-                          (_repeatPasswordErrorText != null ||
-                              _nameErrorText != null))) {
-                    return;
-                  }
+          // Consumer(
+          //   builder: (context, ref, child) {
+          //     final auth = ref.read(authProvider);
+          //     return CustomButton(
+          //       text: widget.isSignup ? 'Sign up' : 'Sign in',
+          //       onPressed: () async {
+          //         setState(() {
+          //           isSubmitted = true;
+          //         });
+          //         if (_emailErrorText != null ||
+          //             _passwordErrorText != null ||
+          //             (widget.isSignup &&
+          //                 (_repeatPasswordErrorText != null ||
+          //                     _nameErrorText != null))) {
+          //           return;
+          //         }
 
-                  setState(() {
-                    isLoading = true;
-                  });
-                  try {
-                    if (widget.isSignup) {
-                      await auth.signup(
-                          name: _nameController.text
-                              .trim()
-                              .replaceAll(RegExp(r"\s+"), " "),
-                          email: _emailController.text,
-                          password: _passwordController.text);
-                    } else {
-                      await auth.login(SigninMethod.email,
-                          email: _emailController.text,
-                          password: _passwordController.text);
-                    }
+          //         setState(() {
+          //           isLoading = true;
+          //         });
+          //         try {
+          //           if (widget.isSignup) {
+          //             await auth.signup(
+          //                 name: _nameController.text
+          //                     .trim()
+          //                     .replaceAll(RegExp(r"\s+"), " "),
+          //                 email: _emailController.text,
+          //                 password: _passwordController.text);
+          //           } else {
+          //             await auth.login(SigninMethod.email,
+          //                 email: _emailController.text,
+          //                 password: _passwordController.text);
+          //           }
 
-                    Navigator.of(context).pop();
-                    Navigator.of(context).pushReplacementNamed(AppRoute.home);
-                  } catch (e) {
-                    setState(() {
-                      isLoading = false;
-                    });
-                    showDialog(
-                      context: context,
-                      builder: (context) => AlertDialog(
-                        content: Text(
-                          e.toString(),
-                        ),
-                      ),
-                    );
-                  }
-                },
-              );
-            },
-          ),
+          //           Navigator.of(context).pop();
+          //           Navigator.of(context).pushReplacementNamed(AppRoute.home);
+          //         } catch (e) {
+          //           setState(() {
+          //             isLoading = false;
+          //           });
+          //           showDialog(
+          //             context: context,
+          //             builder: (context) => AlertDialog(
+          //               content: Text(
+          //                 e.toString(),
+          //               ),
+          //             ),
+          //           );
+          //         }
+          //       },
+          //     );
+          //   },
+          // ),
         ],
       ),
     );

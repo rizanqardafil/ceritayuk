@@ -74,14 +74,14 @@ class AppRoute {
     video: (context) => const HomeScreen(),
     //quiz
     homequiz: (context) => const HomeQuiz(),
-    leaderboard: (context) => const LeaderboardScreen(),
-    multiplayerSearch: (context) => const MultiplayerSearchScreen(),
-    game: (context) => const GameScreen(),
+    leaderboard: (context) =>  LeaderboardScreen(),
+    // multiplayerSearch: (context) => const MultiplayerSearchScreen(),
+    // game: (context) => const GameScreen(),
     offlineGame: (context) => const OfflineGameScreen(),
     levels: (context) => const LevelsScreen(),
     finishLevel: (context) => const FinishLevelScreen(),
 
-    onlineFinish: (context) => const OnlineFinishScreen(),
+    // onlineFinish: (context) => const OnlineFinishScreen(),
     settings: (context) => const SettingsScreen(),
     offlineMultiplayer: (context) => const OfflineMultiplayerScreen(),
     offlineMultiplayerResult: (context) =>

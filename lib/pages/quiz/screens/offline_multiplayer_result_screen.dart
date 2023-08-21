@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:provider/provider.dart';
 import 'package:flutter_svg/svg.dart';
 
 import '../providers/offline.dart';
 import '../widgets/custom_button.dart';
 
-class OfflineMultiplayerResultScreen extends ConsumerWidget {
+class OfflineMultiplayerResultScreen extends StatelessWidget {
   const OfflineMultiplayerResultScreen({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final offline = ref.watch(offlineProvider);
+  Widget build(BuildContext context) {
+    final offline = Provider.of<OfflineProvider>(context);
 
     return SafeArea(
       child: Scaffold(

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:provider/provider.dart';
 import 'package:shamo/pages/quiz/providers/questions.dart';
 
 class CustomTimer extends StatefulWidget {
@@ -27,10 +27,11 @@ class _CustomTimerState extends State<CustomTimer> {
         children: [
           Consumer(
             builder: (context, ref, child) {
-              final questions = ref.watch(questionsProvider);
+              final questionsProvider = Provider.of<QuestionsProvider>(context);
+              
               return FractionallySizedBox(
                 alignment: Alignment.centerLeft,
-                widthFactor: questions.seconds / 60,
+                widthFactor: questionsProvider.seconds / 60,
                 child: Container(
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(30),
@@ -44,9 +45,10 @@ class _CustomTimerState extends State<CustomTimer> {
             left: 10,
             child: Consumer(
               builder: (context, ref, child) {
-                final questions = ref.watch(questionsProvider);
+                final questionsProvider =
+                    Provider.of<QuestionsProvider>(context);
 
-                return Text('${questions.seconds} seconds');
+                return Text('${questionsProvider.seconds} seconds');
               },
             ),
           ),

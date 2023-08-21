@@ -4,20 +4,15 @@ import 'dart:convert';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:google_sign_in/google_sign_in.dart';
+
 import 'package:shamo/pages/quiz/models/game_user.dart';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/foundation.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 
 import '../helpers/auth_type.dart';
 import '../helpers/auth_exception.dart';
-
-import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 Future<bool> isEmailAlreadyExist(email) async {
   final url = Uri.parse(
@@ -39,14 +34,7 @@ Future<bool> isEmailAlreadyExist(email) async {
   return false;
 }
 
-final authProvider = ChangeNotifierProvider<AuthProvider>((ref) {
-  return AuthProvider();
-});
 
-final futureAuthProvider = FutureProvider<void>((ref) async {
-  final auth = ref.watch(authProvider);
-  await auth.getUser();
-});
 
 Future<void> addUserToLeaderboard(GameUser gameUser) async {
   final uniqueId = gameUser.email!.split('@')[0];
@@ -63,11 +51,15 @@ Future<void> addUserToLeaderboard(GameUser gameUser) async {
   // return json.decode(response.body)['name'];
 }
 
-
 class AuthProvider with ChangeNotifier {
   final _authInstance = FirebaseAuth.instance;
+
   GameUser user = GameUser();
+  int get offlineLevel => user.offlineLevel;
   bool get isAuth => user.isAuth;
+
+
+
   final Map<String, dynamic> _userCredentials = {
     'phone': null,
     'email': null,
@@ -80,6 +72,19 @@ class AuthProvider with ChangeNotifier {
     if (loadedData == null) return;
     final loadedUser = GameUser.fromJson(loadedData);
     user = loadedUser;
+  }
+
+  void nextOfflineLevel(int stars) {
+    if (stars == 0) return;
+    user.nextLevel();
+
+    try {
+      final database = FirebaseDatabase.instance.ref();
+      final userRef = database.child('leaderboard/${user.username}');
+      userRef.update({'offlineLevel': user.offlineLevel + 1});
+    } catch (e) {
+      return;
+    }
   }
 
   Map<String, dynamic> get userCredentials {
@@ -202,8 +207,6 @@ class AuthProvider with ChangeNotifier {
     }
   }
 
-  
-
   Future<void> authenticateWithEmailAndPassword(AuthType authType) async {
     try {
       if (authType == AuthType.signUpWithEmailAddress) {
@@ -247,8 +250,6 @@ class AuthProvider with ChangeNotifier {
       rethrow;
     }
   }
-
-
 
   Future<void> authenticateWithCredentials(String smsCode) async {
     try {
