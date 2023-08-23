@@ -40,7 +40,7 @@ class BrandWidget extends StatelessWidget {
           } else if (text == "Telekonseling") {
             routeName = '/chat';
           } else {
-            return; 
+            return;
           }
 
           Navigator.pushNamed(context, routeName);

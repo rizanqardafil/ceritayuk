@@ -1,12 +1,9 @@
 import 'package:shamo/pages/quiz/screens/finish_level_screen.dart';
-import 'package:shamo/pages/quiz/screens/game_screen.dart';
 import 'package:shamo/pages/quiz/screens/home/home.dart';
 import 'package:shamo/pages/quiz/screens/levels_screen.dart';
-import 'package:shamo/pages/quiz/screens/multiplayer_search_screen.dart';
 import 'package:shamo/pages/quiz/screens/offline_game_screen.dart';
 import 'package:shamo/pages/quiz/screens/offline_multiplayer_result_screen.dart';
 import 'package:shamo/pages/quiz/screens/offline_multiplayer_screen.dart';
-import 'package:shamo/pages/quiz/screens/online_finish_screen.dart';
 import 'package:shamo/pages/quiz/screens/settings/settings_screen.dart';
 import 'package:shamo/pages/quiz/screens/leaderboard_screen.dart';
 
@@ -21,7 +18,6 @@ import 'package:shamo/pages/chat/pages/chatterScreen.dart';
 
 //news
 
-import 'package:shamo/pages/news/view/screens/welcome_page.dart';
 //video
 import 'package:shamo/pages/materi/screens/home/home_screen.dart';
 
@@ -69,12 +65,12 @@ class AppRoute {
     chat: (context) => const ChatterScreen(),
 
     //artikel
-    article: (context) => WelcomePage(),
+
     //video
     video: (context) => const HomeScreen(),
     //quiz
     homequiz: (context) => const HomeQuiz(),
-    leaderboard: (context) =>  LeaderboardScreen(),
+    leaderboard: (context) => const LeaderboardScreen(),
     // multiplayerSearch: (context) => const MultiplayerSearchScreen(),
     // game: (context) => const GameScreen(),
     offlineGame: (context) => const OfflineGameScreen(),

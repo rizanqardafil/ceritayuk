@@ -41,7 +41,7 @@ class _MainPageState extends State<MainPage> {
           notchMargin: 10,
           clipBehavior: Clip.antiAlias,
           child: BottomNavigationBar(
-              backgroundColor: backgroundColor4,
+              backgroundColor: backgroundColor10,
               type: BottomNavigationBarType.fixed,
               currentIndex: currentPage,
               onTap: (value) {
@@ -126,7 +126,7 @@ class _MainPageState extends State<MainPage> {
     }
 
     return Scaffold(
-        backgroundColor: backgroundColor3,
+        backgroundColor: backgroundColor10,
         floatingActionButton: cartButton(),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         bottomNavigationBar: customBottomNav(),

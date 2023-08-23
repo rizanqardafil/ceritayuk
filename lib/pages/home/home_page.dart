@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:shamo/pages/beranda/app/constants/app.assets.dart';
 import 'package:shamo/pages/beranda/app/constants/app.colors.dart';
 import 'package:shamo/pages/beranda/core/notifiers/theme.notifier.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -45,9 +44,7 @@ class HomePage extends StatelessWidget {
                       ),
                     ),
                     vSizedBox2,
-                    HomeWidget(),
-                    
-                    
+                    const HomeWidget(),
                     const BrandWidget(),
                     vSizedBox2,
                   ],

@@ -22,6 +22,7 @@ Color backgroundColor6 = const Color(0xffECEDEF);
 Color backgroundColor7 = const Color(0xffFFFFFF);
 Color backgroundColor8 = const Color(0xff21678a);
 Color backgroundColor9 = const Color(0xff000000);
+Color backgroundColor10 = const Color(0xfff5f5ff);
 
 // Text Color
 Color primaryTextColor = const Color(0xffF1F0F2);
