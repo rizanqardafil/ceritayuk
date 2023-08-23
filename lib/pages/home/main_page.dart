@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:shamo/pages/home/home_page.dart';
 import 'package:shamo/pages/home/profile_page.dart';
 import 'package:shamo/theme.dart';
-import 'package:shamo/pages/materi/screens/my_courses/my_courses.dart';
 
 import 'package:shamo/pages/materi/screens/course_library/course_library.dart';
 
@@ -23,12 +22,12 @@ class _MainPageState extends State<MainPage> {
         onPressed: () {
           Navigator.pushNamed(context, '/chat');
         },
+        backgroundColor: backgroundColor8,
         child: Image.asset(
           'assets/images/bubble-chat.png',
           width: 30,
           color: backgroundColor4,
         ),
-        backgroundColor: backgroundColor8,
       );
     }
 

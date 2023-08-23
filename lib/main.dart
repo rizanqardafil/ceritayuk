@@ -13,8 +13,16 @@ import 'package:get/get.dart';
 import 'package:shamo/pages/quiz/providers/questions.dart';
 import 'package:shamo/pages/splash_page.dart';
 import 'package:shamo/onboarding/home.dart';
-
+import 'package:shamo/pages/beranda/core/notifiers/theme.notifier.dart';
 import 'package:shamo/pages/quiz/providers/offline.dart';
+import 'package:shamo/pages/beranda/core/notifiers/user.notifier.dart';
+import 'package:shamo/pages/beranda/core/notifiers/product.notifier.dart';
+import 'package:shamo/pages/beranda/core/notifiers/authentication.notifer.dart';
+
+import 'package:shamo/pages/beranda/core/notifiers/cart.notifier.dart';
+import 'package:shamo/pages/beranda/core/notifiers/size.notifier.dart';
+import 'package:shamo/pages/beranda/core/service/payment.service.dart';
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
@@ -40,10 +48,15 @@ class MainApp extends StatelessWidget {
         ),
         ChangeNotifierProvider(
           create: (context) => OfflineProvider(),
-        )
+        ),
 
-
-       
+        ChangeNotifierProvider(create: (context) => ThemeNotifier()),
+        ChangeNotifierProvider(create: (context) => AuthenticationNotifier()),
+        ChangeNotifierProvider(create: (context) => UserNotifier()),
+        ChangeNotifierProvider(create: (context) => ProductNotifier()),
+        ChangeNotifierProvider(create: (context) => SizeNotifier()),
+        ChangeNotifierProvider(create: (context) => CartNotifier()),
+        ChangeNotifierProvider(create: (context) => PaymentService()),
       ],
       child: GetMaterialApp(
         getPages: appRoutes,
