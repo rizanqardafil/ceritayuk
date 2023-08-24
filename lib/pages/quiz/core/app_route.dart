@@ -14,7 +14,7 @@ import 'package:shamo/welcome/Screens/Login/login_screen.dart';
 import 'package:shamo/pages/LoginSignup/signup/signup_screen.dart';
 import 'package:shamo/onboarding/home.dart';
 //chat
-import 'package:shamo/pages/chat/pages/chatterScreen.dart';
+
 
 //news
 
@@ -62,7 +62,7 @@ class AppRoute {
     onboarding: (context) => const Home(),
 
     //chat
-    chat: (context) => const ChatterScreen(),
+    
 
     //artikel
 

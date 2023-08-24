@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:shamo/homepageall/constants.dart';
+import 'package:shamo/constants.dart';
 
 class RoundedButton extends StatelessWidget {
   final String text;
@@ -26,7 +26,7 @@ class RoundedButton extends StatelessWidget {
             padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 40),
             backgroundColor: color,
           ),
-          onPressed: press , 
+          onPressed: press,
           child: Text(
             text,
             style: TextStyle(color: textColor),

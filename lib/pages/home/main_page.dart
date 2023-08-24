@@ -71,34 +71,6 @@ class _MainPageState extends State<MainPage> {
                       bottom: 10,
                     ),
                     child: Image.asset(
-                      'assets/images/magnifying-glass.png',
-                      width: 20,
-                      color: currentPage == 1 ? primaryColor : thirdColor,
-                    ),
-                  ),
-                  label: '',
-                ),
-                BottomNavigationBarItem(
-                  icon: Container(
-                    margin: const EdgeInsets.only(
-                      top: 20,
-                      bottom: 10,
-                    ),
-                    child: Image.asset(
-                      'assets/images/icon_wishlist.png',
-                      width: 20,
-                      color: currentPage == 2 ? primaryColor : thirdColor,
-                    ),
-                  ),
-                  label: '',
-                ),
-                BottomNavigationBarItem(
-                  icon: Container(
-                    margin: const EdgeInsets.only(
-                      top: 20,
-                      bottom: 10,
-                    ),
-                    child: Image.asset(
                       'assets/images/icon_profile.png',
                       width: 18,
                       color: currentPage == 3 ? primaryColor : thirdColor,
@@ -116,7 +88,7 @@ class _MainPageState extends State<MainPage> {
         case 0:
           return const HomePage();
         case 1:
-          return const CourseLibrary();
+          return const ProfilePage();
 
         case 3:
           return const ProfilePage();

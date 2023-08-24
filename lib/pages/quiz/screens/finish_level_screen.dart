@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:shamo/pages/rizan/providers/auth_provider.dart';
+import 'package:shamo/pages/chat/providers/auth_provider.dart';
 
 import '../providers/questions.dart';
 import '../widgets/custom_button.dart';

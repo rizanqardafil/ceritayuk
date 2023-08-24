@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:shamo/pages/rizan/providers/auth_provider.dart';
+import 'package:shamo/pages/chat/providers/auth_provider.dart';
 import 'package:shamo/pages/quiz/providers/questions.dart';
 import 'package:shamo/pages/quiz/widgets/level_card.dart';
 

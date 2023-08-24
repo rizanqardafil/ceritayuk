@@ -3,7 +3,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart'; // Import from provider package
 
-import 'package:shamo/pages/rizan/providers/auth_provider.dart';
+import 'package:shamo/pages/chat/providers/auth_provider.dart';
 import 'custom_stack.dart';
 
 class HomeQuiz extends StatelessWidget {

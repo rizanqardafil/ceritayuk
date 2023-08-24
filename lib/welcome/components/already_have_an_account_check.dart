@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:shamo/homepageall/constants.dart';
+import 'package:shamo/constants.dart';
 
 class AlreadyHaveAnAccountCheck extends StatelessWidget {
   final bool login;

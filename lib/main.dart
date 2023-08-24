@@ -3,10 +3,10 @@ import 'package:provider/provider.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
-import 'package:shamo/pages/rizan/screens/profile_setup_screen.dart';
+import 'package:shamo/pages/chat/screens/profile_setup_screen.dart';
 import 'package:shamo/pages/quiz/models/game_user.dart';
-import 'package:shamo/pages/rizan/providers/auth_provider.dart';
-import 'package:shamo/pages/rizan/providers/user_data_provider.dart';
+import 'package:shamo/pages/chat/providers/auth_provider.dart';
+import 'package:shamo/pages/chat/providers/user_data_provider.dart';
 
 import 'package:shamo/route.dart';
 import 'package:get/get.dart';

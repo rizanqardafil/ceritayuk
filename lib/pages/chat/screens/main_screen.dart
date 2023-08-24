@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:shamo/pages/rizan/providers/user_data_provider.dart';
+import 'package:shamo/pages/chat/providers/user_data_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:provider/provider.dart';
@@ -20,7 +20,7 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
-  var _currentIndex = 1;
+  final _currentIndex = 1;
   late StreamSubscription _messageStreamSubscription;
   late StreamSubscription _statusStreamSubscription;
 
@@ -104,36 +104,6 @@ class _MainScreenState extends State<MainScreen> {
     return Scaffold(
       appBar: _scaffoldAppBar(),
       body: _scaffoldBody(),
-      bottomNavigationBar: Theme(
-        data: Theme.of(context).copyWith(
-          splashColor: Colors.transparent,
-          highlightColor: Colors.transparent,
-        ),
-        child: BottomNavigationBar(
-            currentIndex: _currentIndex,
-            showUnselectedLabels: false,
-            backgroundColor: Colors.transparent,
-            elevation: 0,
-            onTap: (value) => setState(() {
-                  _currentIndex = value;
-                }),
-            items: const [
-              BottomNavigationBarItem(
-                icon: Icon(
-                  Icons.group,
-                ),
-                label: 'Live Chat',
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.chat_bubble_outline),
-                label: 'Chat',
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.more_horiz),
-                label: 'More',
-              )
-            ]),
-      ),
     );
   }
 }

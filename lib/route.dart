@@ -8,17 +8,17 @@ import 'package:shamo/onboarding/home.dart';
 
 //chat
 
-import 'package:shamo/pages/rizan/screens/main_screen.dart';
-import 'package:shamo/pages/rizan/screens/new_chat_screen.dart';
-import 'package:shamo/pages/rizan/screens/auth_type_screen.dart';
-import 'package:shamo/pages/rizan/screens/auth_screen.dart';
-import 'package:shamo/pages/rizan/screens/opt_screen.dart';
-import 'package:shamo/pages/rizan/screens/profile_setup_screen.dart';
-import 'package:shamo/pages/rizan/screens/privacy_policy_screen.dart';
-import 'package:shamo/pages/rizan/screens/message_screen.dart';
-import 'package:shamo/pages/rizan/screens/profile_screen.dart';
-import 'package:shamo/pages/rizan/screens/manage_users_screen.dart';
-import 'package:shamo/pages/rizan/screens/live_chat_message_screen.dart';
+import 'package:shamo/pages/chat/screens/main_screen.dart';
+import 'package:shamo/pages/chat/screens/new_chat_screen.dart';
+import 'package:shamo/pages/chat/screens/auth_type_screen.dart';
+import 'package:shamo/pages/chat/screens/auth_screen.dart';
+import 'package:shamo/pages/chat/screens/opt_screen.dart';
+import 'package:shamo/pages/chat/screens/profile_setup_screen.dart';
+import 'package:shamo/pages/chat/screens/privacy_policy_screen.dart';
+import 'package:shamo/pages/chat/screens/message_screen.dart';
+import 'package:shamo/pages/chat/screens/profile_screen.dart';
+import 'package:shamo/pages/chat/screens/manage_users_screen.dart';
+import 'package:shamo/pages/chat/screens/live_chat_message_screen.dart';
 
 //news
 import 'package:shamo/pages/artikel/screen/NBHomeScreen.dart';
