@@ -3,8 +3,6 @@ import 'package:shamo/pages/home/home_page.dart';
 import 'package:shamo/pages/home/profile_page.dart';
 import 'package:shamo/theme.dart';
 
-import 'package:shamo/pages/materi/screens/course_library/course_library.dart';
-
 class MainPage extends StatefulWidget {
   const MainPage({Key? key}) : super(key: key);
 

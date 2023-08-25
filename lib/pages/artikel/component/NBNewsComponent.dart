@@ -4,11 +4,13 @@ import 'package:shamo/pages/artikel/model/NBModel.dart';
 import 'package:shamo/pages/artikel/screen/NBNewsDetailsScreen.dart';
 import 'package:shamo/pages/artikel/utils/NBColors.dart';
 
+import 'package:shamo/pages/app_styles.dart';
+
 class NBNewsComponent extends StatefulWidget {
   static String tag = '/NBNewsComponent';
   final List<NBNewsDetailsModel>? list;
 
-  NBNewsComponent({this.list});
+  const NBNewsComponent({super.key, this.list});
 
   @override
   NBNewsComponentState createState() => NBNewsComponentState();
@@ -32,32 +34,49 @@ class NBNewsComponentState extends State<NBNewsComponent> {
   Widget build(BuildContext context) {
     return ListView.separated(
       shrinkWrap: true,
-      physics: ScrollPhysics(),
+      physics: const ScrollPhysics(),
       itemCount: widget.list!.length,
-      padding: EdgeInsets.all(16),
+      padding: const EdgeInsets.all(16),
       itemBuilder: (context, index) {
         NBNewsDetailsModel mData = widget.list![index];
         return Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text('${mData.categoryName}', style: boldTextStyle(color: NBPrimaryColor)),
-                Text('${mData.title}', style: boldTextStyle(), softWrap: true, maxLines: 3),
+                Container(
+                  height: 200,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(kBorderRadius),
+                    image: DecorationImage(
+                      fit: BoxFit.cover,
+                      image: AssetImage(
+                        mData.image ??
+                            'default_image_path.png', // Use a default image path if mData.image is null
+                      ), // Use the image from mData.image
+                    ),
+                  ),
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                
+                Text('${mData.categoryName}',
+                    style: boldTextStyle(color: NBPrimaryColor)),
+                Text('${mData.title}',
+                    style: boldTextStyle(), softWrap: true, maxLines: 3),
                 8.height,
                 Text('${mData.date}', style: secondaryTextStyle()),
               ],
             ).expand(flex: 2),
             4.width,
-            Image.asset('${mData.image}', height: 100, fit: BoxFit.fill).cornerRadiusWithClipRRect(16).expand(flex: 1),
           ],
         ).onTap(() {
           NBNewsDetailsScreen(newsDetails: mData).launch(context);
         });
       },
       separatorBuilder: (context, index) {
-        return Divider();
+        return const Divider();
       },
     );
   }

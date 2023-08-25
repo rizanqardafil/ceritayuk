@@ -66,14 +66,13 @@ class NBHomeScreenState extends State<NBHomeScreen>
     return Scaffold(
       key: _scaffoldKey,
       appBar: AppBar(
-        title: Text('News Blog', style: boldTextStyle(color: black, size: 20)),
+        title: Text('Cerita Yuk', style: boldTextStyle(color: black, size: 20)),
         backgroundColor: white,
         centerTitle: true,
         bottom: TabBar(
           controller: tabController,
           tabs: const [
             Tab(text: 'All News'),
-            
             Tab(text: 'Health and Care'),
             Tab(text: 'Sexual Behavior'),
             Tab(text: 'Habit Culture')
@@ -136,7 +135,6 @@ class NBHomeScreenState extends State<NBHomeScreen>
         controller: tabController,
         children: [
           NBAllNewsComponent(),
-          
           NBNewsComponent(list: mFashionNewsList),
           NBNewsComponent(list: mSportsNewsList),
           NBNewsComponent(list: mScienceNewsList),

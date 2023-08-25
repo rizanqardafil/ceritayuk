@@ -24,6 +24,7 @@ import 'package:shamo/pages/chat/screens/live_chat_message_screen.dart';
 import 'package:shamo/pages/artikel/screen/NBHomeScreen.dart';
 //video
 import 'package:shamo/pages/materi/screens/home/home_screen.dart';
+import 'package:shamo/pages/cart_page.dart';
 //quiz
 import 'package:shamo/pages/quiz/screens/home/home.dart';
 import 'package:shamo/pages/quiz/screens/finish_level_screen.dart';
@@ -134,6 +135,6 @@ var appRoutes = [
   ),
   GetPage(
     name: '/video',
-    page: () => const HomeScreen(),
+    page: () => const CartPage(),
   ),
 ];
