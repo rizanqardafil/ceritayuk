@@ -35,7 +35,6 @@ class _MyCoursesState extends State<MyCourses> {
         coursesInfo.add(preferences.getStringList(courseIdList[i])!);
       }
       for (int i = 0; i < courseIdList.length; i++) {
-        
         percentageList.add(int.parse(coursesInfo[i][0]));
       }
       setState(() {

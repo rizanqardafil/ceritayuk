@@ -875,6 +875,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.0.15"
+  flutter_rating_bar:
+    dependency: "direct main"
+    description:
+      name: flutter_rating_bar
+      sha256: d2af03469eac832c591a1eba47c91ecc871fe5708e69967073c043b2d775ed93
+      url: "https://pub.dev"
+    source: hosted
+    version: "4.0.1"
   flutter_riverpod:
     dependency: "direct main"
     description:
@@ -1842,6 +1850,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.5.1"
+  timeago:
+    dependency: "direct main"
+    description:
+      name: timeago
+      sha256: "4addcda362e51f23cf7ae2357fccd053f29d59b4ddd17fb07fc3e7febb47a456"
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.5.0"
   timezone:
     dependency: transitive
     description:
@@ -2090,6 +2106,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.1.2"
+  youtube_api:
+    dependency: "direct main"
+    description:
+      name: youtube_api
+      sha256: "9b355d327a0a3a06fe91b9f21b2075214fc44225a1824d106191a248894c7999"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.4"
   youtube_player_flutter:
     dependency: "direct main"
     description:

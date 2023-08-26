@@ -57,7 +57,7 @@ class _CourseContentListState extends State<CourseContentList> {
       titleList.add(retrievedList.first);
       authorList.add(retrievedList.last);
     }
-    if (this.mounted) {
+    if (mounted) {
       setState(() {
         isLoading = false;
       });
@@ -85,10 +85,10 @@ class _CourseContentListState extends State<CourseContentList> {
               builder: (context, snapshot) {
                 var decodedJsonData = json.decode(snapshot.data.toString());
                 if (decodedJsonData == null || isLoading) {
-                  return Center(
+                  return const Center(
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
-                      children: const <Widget>[
+                      children: <Widget>[
                         CircularProgressIndicator(),
                         SizedBox(height: 20.0),
                         Text(

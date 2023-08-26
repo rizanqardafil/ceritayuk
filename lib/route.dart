@@ -135,6 +135,6 @@ var appRoutes = [
   ),
   GetPage(
     name: '/video',
-    page: () => const CartPage(),
+    page: () => const HomeScreen(),
   ),
 ];

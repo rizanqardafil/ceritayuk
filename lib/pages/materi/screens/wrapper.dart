@@ -1,4 +1,4 @@
-import 'package:shamo/pages/materi/screens/authentication/initial_auth.dart';
+
 import 'package:shamo/pages/materi/screens/home/bottom_navigation_wrapper.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -23,7 +23,7 @@ class Wrapper extends StatelessWidget {
       builder: ((context, snapshot) {
         if (snapshot.hasData) {
           if (snapshot.data == true) {
-            return const InitialAuthentication();
+            return const BottomNavigationWrapper();
           } else {
             return const BottomNavigationWrapper();
           }

@@ -1,4 +1,3 @@
-import 'package:shamo/pages/materi/screens/authentication/initial_auth.dart';
 import 'package:flutter/material.dart';
 
 class NavBar extends StatefulWidget {
@@ -23,15 +22,6 @@ class _NavBarState extends State<NavBar> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.center,
         ),
-      ),
-    );
-  }
-
-  navigateToRegister() {
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => const InitialAuthentication(),
       ),
     );
   }
