@@ -23,7 +23,7 @@ const NBFashionCategory = 'assets/images/nb_fashionCategory.jpg';
 const NBSportsCategory = 'assets/images/nb_sportsCategory.jpg';
 const NBScienceCategory = 'assets/images/nb_scienceCategory.jpg';
 
-const banner1 = 'assets/images/banner1.jpg';
+const banner1 = 'assets/icons/bannervideo.jpg';
 const banner2 = 'assets/images/banner2.jpg';
 const banner3 = 'assets/images/banner3.jpg';
 

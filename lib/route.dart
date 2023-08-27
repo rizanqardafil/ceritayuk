@@ -5,7 +5,6 @@ import 'package:shamo/welcome/Screens/Login/login_screen.dart';
 import 'package:shamo/pages/LoginSignup/signup/signup_screen.dart';
 import 'package:shamo/onboarding/home.dart';
 
-
 //chat
 
 import 'package:shamo/pages/chat/screens/main_screen.dart';
@@ -24,7 +23,6 @@ import 'package:shamo/pages/chat/screens/live_chat_message_screen.dart';
 import 'package:shamo/pages/artikel/screen/NBHomeScreen.dart';
 //video
 import 'package:shamo/pages/materi/screens/home/home_screen.dart';
-import 'package:shamo/pages/cart_page.dart';
 //quiz
 import 'package:shamo/pages/quiz/screens/home/home.dart';
 import 'package:shamo/pages/quiz/screens/finish_level_screen.dart';

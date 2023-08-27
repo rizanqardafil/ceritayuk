@@ -11,6 +11,7 @@ import connectivity_macos
 import connectivity_plus
 import emoji_picker_flutter
 import file_selector_macos
+import firebase_analytics
 import firebase_auth
 import firebase_core
 import firebase_database
@@ -34,6 +35,7 @@ func RegisterGeneratedPlugins(registry: FlutterPluginRegistry) {
   ConnectivityPlugin.register(with: registry.registrar(forPlugin: "ConnectivityPlugin"))
   EmojiPickerFlutterPlugin.register(with: registry.registrar(forPlugin: "EmojiPickerFlutterPlugin"))
   FileSelectorPlugin.register(with: registry.registrar(forPlugin: "FileSelectorPlugin"))
+  FLTFirebaseAnalyticsPlugin.register(with: registry.registrar(forPlugin: "FLTFirebaseAnalyticsPlugin"))
   FLTFirebaseAuthPlugin.register(with: registry.registrar(forPlugin: "FLTFirebaseAuthPlugin"))
   FLTFirebaseCorePlugin.register(with: registry.registrar(forPlugin: "FLTFirebaseCorePlugin"))
   FLTFirebaseDatabasePlugin.register(with: registry.registrar(forPlugin: "FLTFirebaseDatabasePlugin"))

@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:nb_utils/nb_utils.dart';
 import 'package:provider/provider.dart';
 import 'package:shamo/pages/beranda/app/constants/app.assets.dart';
 import 'package:shamo/pages/beranda/app/constants/app.colors.dart';
 import 'package:shamo/pages/beranda/core/notifiers/theme.notifier.dart';
 import 'package:shamo/pages/beranda/presentation/widgets/custom.text.style.dart';
 import 'package:shamo/pages/beranda/presentation/widgets/dimensions.widget.dart';
+import 'package:shamo/theme.dart';
 
 class BrandWidget extends StatelessWidget {
   const BrandWidget({Key? key}) : super(key: key);
@@ -57,20 +59,31 @@ class BrandWidget extends StatelessWidget {
             ),
             elevation: 6,
             color: themeFlag ? AppColors.mirage : AppColors.creamColor,
-            child: Column(
-              children: [
-                SizedBox(
+            child: Container(
+              decoration: BoxDecoration(
+                color: backgroundColor8,
+                borderRadius: const BorderRadius.only(
+                    topLeft: Radius.circular(10.0),
+                    topRight: Radius.circular(10.0),
+                    bottomLeft: Radius.circular(10.0),
+                    bottomRight: Radius.circular(10.0)),
+              ),
+              child: Column(
+                children: [
+                  SizedBox(
                     height: MediaQuery.of(context).size.height * 0.18,
                     width: MediaQuery.of(context).size.width * 0.38,
-                    child: Image.asset(images)),
-                vSizedBox1,
-                Text(
-                  text,
-                  style: CustomTextWidget.bodyText2(
-                    color: themeFlag ? AppColors.creamColor : AppColors.mirage,
+                    child: Image.asset(images),
                   ),
-                )
-              ],
+                  vSizedBox1,
+                  Text(
+                    text,
+                    style: CustomTextWidget.bodyText2(
+                      color: white,
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
         ),
