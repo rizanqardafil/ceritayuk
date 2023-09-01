@@ -9,8 +9,6 @@ import 'package:shamo/welcome/components/rounded_input_fied.dart';
 import 'package:shamo/welcome/Screens/SignUp/components/or_divider.dart';
 import 'package:shamo/welcome/Screens/SignUp/components/social_icon.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:shamo/welcome/Screens/reusable_widget.dart';
-import 'package:flutter/material.dart';
 
 class Body extends StatefulWidget {
   const Body({Key? key}) : super(key: key);

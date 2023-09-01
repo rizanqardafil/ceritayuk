@@ -19,11 +19,11 @@ class SignUpForm extends StatelessWidget {
             textInputAction: TextInputAction.next,
             cursorColor: kPrimaryColor,
             onSaved: (email) {},
-            decoration: InputDecoration(
+            decoration: const InputDecoration(
               hintText: "Your email",
               prefixIcon: Padding(
-                padding: const EdgeInsets.all(defaultPadding),
-                child: const Icon(Icons.person),
+                padding: EdgeInsets.all(defaultPadding),
+                child: Icon(Icons.person),
               ),
             ),
           ),
@@ -33,11 +33,11 @@ class SignUpForm extends StatelessWidget {
               textInputAction: TextInputAction.done,
               obscureText: true,
               cursorColor: kPrimaryColor,
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 hintText: "Your password",
                 prefixIcon: Padding(
-                  padding: const EdgeInsets.all(defaultPadding),
-                  child: const Icon(Icons.lock),
+                  padding: EdgeInsets.all(defaultPadding),
+                  child: Icon(Icons.lock),
                 ),
               ),
             ),

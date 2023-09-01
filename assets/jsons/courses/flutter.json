@@ -1,9 +1,9 @@
 {
   "id": "004",
-  "name": "Flutter Course",
+  "name": "Cara Menghadapi",
   "description": "Flutter Course for Mobile App Development.",
   "thumbnailUrl": "https://i.ytimg.com/vi/x606y4QWrxo/0.jpg",
-  "length": 12,
+  "length": 1,
   "mapping": {
     "type1": "video",
     "type2": "video",
@@ -30,7 +30,7 @@
     "type23": "quiz"
   },
   "tutorials": {
-    "videos": "1ukSR1GRtMU,bKueYVtV0eA,FLQ-Vhw1NYQ,TSIhiZ5jRB0,C5lpPjoivaw,km2P_KQJyO0,zwPBMg3SHVU,Hxh6nNHSUjo,ABmqtI7ec7E,H0cJ0gUlgE8,a6oKFvGuTH4,siFU8c_Heu0,RdPkFd6_fTA,zNZvuP8h1vs,c063ddhWafo,p5dkB3Mrxdo,_AC90CiDoKA,QgQJJ0y0A6w,XIxahpXU_QE,jAxNZYX7mHM",
+    "videos": "UJ_1zDH6kCQ,bKueYVtV0eA,FLQ-Vhw1NYQ,TSIhiZ5jRB0,C5lpPjoivaw,km2P_KQJyO0,zwPBMg3SHVU,Hxh6nNHSUjo,ABmqtI7ec7E,H0cJ0gUlgE8,a6oKFvGuTH4,siFU8c_Heu0,RdPkFd6_fTA,zNZvuP8h1vs,c063ddhWafo,p5dkB3Mrxdo,_AC90CiDoKA,QgQJJ0y0A6w,XIxahpXU_QE,jAxNZYX7mHM",
     "test1": {
       "quizNo": 1,
       "length": 4,

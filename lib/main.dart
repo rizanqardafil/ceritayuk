@@ -49,7 +49,6 @@ class MainApp extends StatelessWidget {
         ChangeNotifierProvider(
           create: (context) => OfflineProvider(),
         ),
-
         ChangeNotifierProvider(create: (context) => ThemeNotifier()),
         ChangeNotifierProvider(create: (context) => AuthenticationNotifier()),
         ChangeNotifierProvider(create: (context) => UserNotifier()),

@@ -12,11 +12,10 @@ class OfflineGameScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    
     final questionsProvider = Provider.of<QuestionsProvider>(context);
 
     if (questionsProvider.isFinish || questionsProvider.seconds == 0) {
-      WidgetsBinding.instance!.addPostFrameCallback((_) {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
         Navigator.of(context).pushReplacementNamed('/finish-Level');
       });
     }
@@ -55,7 +54,7 @@ class OfflineGameScreen extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(horizontal: 15),
                     width: double.infinity,
                     child: Text(
-                      'Question ${questionsProvider.currentQuestionIndex + 1}/4',
+                      'Question ${questionsProvider.currentQuestionIndex + 1}/5',
                       textAlign: TextAlign.start,
                       style: const TextStyle(fontSize: 25),
                     ),

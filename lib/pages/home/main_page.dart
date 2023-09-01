@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:shamo/pages/home/home_page.dart';
-import 'package:shamo/pages/home/profile_page.dart';
+import 'package:shamo/pages/beranda/core/notifiers/theme.notifier.dart';
 import 'package:shamo/theme.dart';
-
+import 'package:shamo/pages/lib/presentation/screens/profileScreens/mainProfileScreen/profile.screen.dart';
+import 'package:provider/provider.dart';
+import 'package:shamo/pages/lib/app/constants/app.colors.dart';
 class MainPage extends StatefulWidget {
   const MainPage({Key? key}) : super(key: key);
 
@@ -15,6 +17,9 @@ class _MainPageState extends State<MainPage> {
 
   @override
   Widget build(BuildContext context) {
+    ThemeNotifier themeNotifier = Provider.of<ThemeNotifier>(context);
+    var themeFlag = themeNotifier.darkTheme;
+
     Widget cartButton() {
       return FloatingActionButton(
         onPressed: () {
@@ -39,44 +44,45 @@ class _MainPageState extends State<MainPage> {
           notchMargin: 10,
           clipBehavior: Clip.antiAlias,
           child: BottomNavigationBar(
-              backgroundColor: backgroundColor10,
-              type: BottomNavigationBarType.fixed,
-              currentIndex: currentPage,
-              onTap: (value) {
-                setState(() {
-                  currentPage = value;
-                });
-              },
-              items: [
-                BottomNavigationBarItem(
-                  icon: Container(
-                    margin: const EdgeInsets.only(
-                      top: 20,
-                      bottom: 10,
-                    ),
-                    child: Image.asset(
-                      'assets/images/icon_home.png',
-                      width: 21,
-                      color: currentPage == 0 ? primaryColor : thirdColor,
-                    ),
+            backgroundColor: backgroundColor10,
+            type: BottomNavigationBarType.fixed,
+            currentIndex: currentPage,
+            onTap: (value) {
+              setState(() {
+                currentPage = value;
+              });
+            },
+            items: [
+              BottomNavigationBarItem(
+                icon: Container(
+                  margin: const EdgeInsets.only(
+                    top: 20,
+                    bottom: 10,
                   ),
-                  label: '',
-                ),
-                BottomNavigationBarItem(
-                  icon: Container(
-                    margin: const EdgeInsets.only(
-                      top: 20,
-                      bottom: 10,
-                    ),
-                    child: Image.asset(
-                      'assets/images/icon_profile.png',
-                      width: 18,
-                      color: currentPage == 3 ? primaryColor : thirdColor,
-                    ),
+                  child: Image.asset(
+                    'assets/images/icon_home.png',
+                    width: 21,
+                    color: currentPage == 0 ? primaryColor : thirdColor,
                   ),
-                  label: '',
                 ),
-              ]),
+                label: '',
+              ),
+              BottomNavigationBarItem(
+                icon: Container(
+                  margin: const EdgeInsets.only(
+                    top: 20,
+                    bottom: 10,
+                  ),
+                  child: Image.asset(
+                    'assets/images/icon_profile.png',
+                    width: 18,
+                    color: currentPage == 1 ? primaryColor : thirdColor,
+                  ),
+                ),
+                label: '',
+              ),
+            ],
+          ),
         ),
       );
     }
@@ -86,20 +92,18 @@ class _MainPageState extends State<MainPage> {
         case 0:
           return const HomePage();
         case 1:
-          return const ProfilePage();
-
-        case 3:
-          return const ProfilePage();
+          return const ProfileScreen();
         default:
           return const HomePage();
       }
     }
 
     return Scaffold(
-        backgroundColor: backgroundColor10,
-        floatingActionButton: cartButton(),
-        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-        bottomNavigationBar: customBottomNav(),
-        body: body());
+      backgroundColor: themeFlag ? AppColors.mirage : AppColors.creamColor,
+      floatingActionButton: cartButton(),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      bottomNavigationBar: customBottomNav(),
+      body: body(),
+    );
   }
 }

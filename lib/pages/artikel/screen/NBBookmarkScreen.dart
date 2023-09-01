@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nb_utils/nb_utils.dart';
 import 'package:shamo/pages/artikel/model/NBModel.dart';
-import 'package:shamo/pages/artikel/screen/NBNewsDetailsScreen.dart';
 import 'package:shamo/pages/artikel/screen/PurchaseMoreScreen.dart';
 import 'package:shamo/pages/artikel/utils/NBColors.dart';
 import 'package:shamo/pages/artikel/utils/NBDataProviders.dart';
@@ -9,6 +8,8 @@ import 'package:shamo/pages/artikel/utils/NBWidgets.dart';
 
 class NBBookmarkScreen extends StatefulWidget {
   static String tag = '/NBBookmarkScreen';
+
+  const NBBookmarkScreen({super.key});
 
   @override
   NBBookmarkScreenState createState() => NBBookmarkScreenState();
@@ -28,11 +29,11 @@ class NBBookmarkScreenState extends State<NBBookmarkScreen> {
   }
 
   Future<void> init() async {
-    newsList.forEach((element) {
+    for (var element in newsList) {
       if (element.isBookmark) {
         bookmarkNewsList.add(element);
       }
-    });
+    }
   }
 
   @override
@@ -44,7 +45,7 @@ class NBBookmarkScreenState extends State<NBBookmarkScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: nbAppBarWidget(context, title: 'Bookmark'),
-      body: bookmarkNewsList.length != 0
+      body: bookmarkNewsList.isNotEmpty
           ? SingleChildScrollView(
               child: Column(
                 children: [
@@ -56,8 +57,9 @@ class NBBookmarkScreenState extends State<NBBookmarkScreen> {
                         value: dropDownValue,
                         items: List.generate(dropDownItems.length, (index) {
                           return DropdownMenuItem(
-                            child: Text('${dropDownItems[index]}', style: boldTextStyle()),
                             value: dropDownItems[index],
+                            child: Text(dropDownItems[index],
+                                style: boldTextStyle()),
                           );
                         }),
                         onChanged: (dynamic value) {
@@ -71,24 +73,33 @@ class NBBookmarkScreenState extends State<NBBookmarkScreen> {
                   ),
                   ListView.separated(
                     shrinkWrap: true,
-                    physics: ScrollPhysics(),
+                    physics: const ScrollPhysics(),
                     itemCount: bookmarkNewsList.length,
                     itemBuilder: (context, index) {
                       NBNewsDetailsModel mData = bookmarkNewsList[index];
                       return Container(
-                        margin: EdgeInsets.only(top: 8, bottom: 8),
+                        margin: const EdgeInsets.only(top: 8, bottom: 8),
                         child: Row(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Image.asset('${mData.image}', height: 100, fit: BoxFit.fill).cornerRadiusWithClipRRect(16).expand(flex: 1),
+                            Image.asset('${mData.image}',
+                                    height: 100, fit: BoxFit.fill)
+                                .cornerRadiusWithClipRRect(16)
+                                .expand(flex: 1),
                             16.width,
                             Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text('${mData.categoryName}', style: boldTextStyle(color: NBPrimaryColor)),
-                                Text('${mData.title}', style: boldTextStyle(), softWrap: true, maxLines: 3),
+                                Text('${mData.categoryName}',
+                                    style:
+                                        boldTextStyle(color: NBPrimaryColor)),
+                                Text('${mData.title}',
+                                    style: boldTextStyle(),
+                                    softWrap: true,
+                                    maxLines: 3),
                                 8.height,
-                                Text('${mData.date}', style: secondaryTextStyle()),
+                                Text('${mData.date}',
+                                    style: secondaryTextStyle()),
                               ],
                             ).expand(flex: 2),
                             PopupMenuButton(
@@ -96,8 +107,9 @@ class NBBookmarkScreenState extends State<NBBookmarkScreen> {
                                 return [
                                   PopupMenuItem(
                                     height: 10,
-                                    child: Text('Remove', style: boldTextStyle()),
                                     value: 'Remove',
+                                    child:
+                                        Text('Remove', style: boldTextStyle()),
                                   ),
                                 ];
                               },
@@ -117,7 +129,7 @@ class NBBookmarkScreenState extends State<NBBookmarkScreen> {
                       });
                     },
                     separatorBuilder: (context, index) {
-                      return Divider();
+                      return const Divider();
                     },
                   ),
                 ],

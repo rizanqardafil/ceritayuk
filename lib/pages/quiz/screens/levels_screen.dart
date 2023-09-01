@@ -9,11 +9,9 @@ class LevelsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     final auth = Provider.of<AuthProvider>(context);
     final questionsProvider = Provider.of<QuestionsProvider>(context);
 
- 
     return Scaffold(
       body: ListView(
         children: [
@@ -42,7 +40,7 @@ class LevelsScreen extends StatelessWidget {
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 2,
             ),
-            itemCount: 24,
+            itemCount: 5,
             itemBuilder: (BuildContext context, int index) {
               return LevelCard(
                 level: index + 1,

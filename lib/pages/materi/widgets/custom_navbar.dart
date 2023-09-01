@@ -15,14 +15,16 @@ class CustomNavBar extends StatelessWidget {
       width: size.width * 0.90,
       child: Row(
         children: [
-          IconButton(onPressed: () {
-            Navigator.pop(context);
-          }, icon: Icon(Icons.arrow_back_rounded)),
+          IconButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              icon: const Icon(Icons.arrow_back_rounded)),
           Text(
             title,
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
-            style: kTitleText,
+            style: kNormalSubTitle1,
           ),
         ],
       ),

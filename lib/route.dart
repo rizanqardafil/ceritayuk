@@ -15,13 +15,13 @@ import 'package:shamo/pages/chat/screens/opt_screen.dart';
 import 'package:shamo/pages/chat/screens/profile_setup_screen.dart';
 import 'package:shamo/pages/chat/screens/privacy_policy_screen.dart';
 import 'package:shamo/pages/chat/screens/message_screen.dart';
-import 'package:shamo/pages/chat/screens/profile_screen.dart';
+// import 'package:shamo/pages/chat/screens/profile_screen.dart';
 import 'package:shamo/pages/chat/screens/manage_users_screen.dart';
 import 'package:shamo/pages/chat/screens/live_chat_message_screen.dart';
 
 //news
 import 'package:shamo/pages/artikel/screen/NBHomeScreen.dart';
-//video
+// //video
 import 'package:shamo/pages/materi/screens/home/home_screen.dart';
 //quiz
 import 'package:shamo/pages/quiz/screens/home/home.dart';
@@ -34,6 +34,10 @@ import 'package:shamo/pages/quiz/screens/settings/settings_screen.dart';
 
 import 'package:get/get.dart';
 
+import 'package:shamo/pages/lib/presentation/screens/profileScreens/editProfileScreen/edit.profile.screen.dart';
+import 'package:shamo/pages/lib/presentation/screens/profileScreens/mainProfileScreen/profile.screen.dart';
+import 'package:shamo/pages/lib/presentation/screens/profileScreens/appSettingsScreen/app.setting.screen.dart';
+import 'package:shamo/pages/lib/presentation/screens/profileScreens/accountInformationScreen/account.information.screen.dart';
 var appRoutes = [
   GetPage(
     name: "/home",
@@ -87,10 +91,10 @@ var appRoutes = [
     name: MessageScreen.routeName,
     page: () => const MessageScreen(),
   ),
-  GetPage(
-    name: ProfileScreen.routeName,
-    page: () => const ProfileScreen(),
-  ),
+  // GetPage(
+  //   name: ProfileScreen.routeName,
+  //   page: () => const ProfileScreen(),
+  // ),
   GetPage(
     name: ManageUsersScreen.routeName,
     page: () => const ManageUsersScreen(),
@@ -134,5 +138,21 @@ var appRoutes = [
   GetPage(
     name: '/video',
     page: () => const HomeScreen(),
+  ),
+  GetPage(
+    name: '/profile',
+    page: () => const ProfileScreen(),
+  ),
+  GetPage(
+    name: '/editProfile',
+    page: () => EditProfileScreen(),
+  ),
+  GetPage(
+    name: '/appSettings',
+    page: () => const AppSettings(),
+  ),
+  GetPage(
+    name: '/accountInfo',
+    page: () => const AccountInformationScreen(),
   ),
 ];

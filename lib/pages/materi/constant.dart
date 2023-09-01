@@ -9,6 +9,7 @@ const kNormalTitle = TextStyle(
   fontSize: 22.0,
   fontWeight: FontWeight.bold,
 );
+const kNormalSubTitle1 = TextStyle(fontSize: 19.0, fontWeight: FontWeight.w800);
 
 const kNormalSubTitle = TextStyle(
   fontSize: 16.0,
@@ -28,7 +29,7 @@ List<List<Color>> kGradientColors = [
     const Color(0xFF1182C1),
     const Color(0xFF43A6EE),
     const Color(0xFF7ECBF4),
-  ], 
+  ],
   [
     const Color(0xFFEA7773),
     const Color(0xFFF5BCBA),
